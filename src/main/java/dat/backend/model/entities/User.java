@@ -44,14 +44,26 @@ public class User
     private String username;
     private String password;
     private String role;
+    private int balance;
+    private int idOrder;
+
+    public User(String username, String password, String role, int balance)
+    {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.balance=balance;
+        this.idOrder=0;
+    }
 
     public User(String username, String password, String role)
     {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.balance=500;
+        this.idOrder=0;
     }
-
     public String getUsername()
     {
         return username;
