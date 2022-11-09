@@ -1,17 +1,20 @@
 package dat.backend.model.entities;
 
+import java.sql.Timestamp;
+
 public class Topping {
 
-   int toppingVar;
+   String toppingVar;
+
    int toppingPrice;
 
-    public Topping(int toppingVar, int toppingPrice) {
+    public Topping(String toppingVar, int toppingPrice) {
 
         this.toppingVar = toppingVar;
         this.toppingPrice = toppingPrice;
     }
 
-    public int getToppingVar() {
+    public String getToppingVar() {
         return toppingVar;
     }
 
