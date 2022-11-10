@@ -43,7 +43,9 @@ public class Login extends HttpServlet
             User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
+
             ShoppingCart cart = new ShoppingCart();
+
             session.setAttribute("cart", cart);
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
         }

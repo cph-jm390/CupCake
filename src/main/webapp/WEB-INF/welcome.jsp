@@ -69,6 +69,9 @@
 >>>>>>> Minor changes in Welcome
 >>>>>>> Minor changes in Welcome
 
+        <h3>Indhold i kurv:</h3>
+        <c:forEach var="item"
+
     </jsp:body>
 
 </t:CupCakeLogo>
