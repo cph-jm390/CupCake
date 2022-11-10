@@ -45,10 +45,15 @@
         </form>
 
         Antal linjer i kurven: ${requestScope.ordersize}
+<<<<<<< Updated upstream
         Indhold i kurv:
         <c:forEach var="item" items="$sessionScope.cart.CupcakeList}">
             ${item.topID} BotID: ${item.botID} Antal: ${item.quantity}
         </c:forEach>
+=======
+        Indhold i kurv: ${requestScope.cartsize}
+        
+>>>>>>> Stashed changes
 
     </jsp:body>
 
