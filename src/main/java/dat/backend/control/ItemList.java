@@ -15,16 +15,16 @@ public class ItemList extends HttpServlet {
 
     private static ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  //  @Override
+   /* protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         List<Item> itemList = ItemFacade.getItems(connectionPool);
         request.setAttribute("itemList", itemList);
 
         request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
-    }
+    } */
 
-    @Override
+    //@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

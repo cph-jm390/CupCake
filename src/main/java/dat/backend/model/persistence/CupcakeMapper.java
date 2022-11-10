@@ -23,10 +23,11 @@ public class CupcakeMapper {
 
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
+                    int botId = rs.getInt("idBottom");
                     String bottomVar = rs.getString("bottomVar");
                     int bottomPrice = rs.getInt("bottomPrice");
 
-                    Bottom newBottom = new Bottom(bottomVar, bottomPrice);
+                    Bottom newBottom = new Bottom(botId, bottomVar, bottomPrice);
                     BottomList.add(newBottom);
                 }
             } catch (SQLException throwables) {
@@ -65,10 +66,11 @@ public class CupcakeMapper {
 
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
+                    int topId=rs.getInt("idTopping");
                     String toppingVar = rs.getString("ToppingVar");
                     int toppingPrice = rs.getInt("toppingPrice");
 
-                    Topping newTopping = new Topping(toppingVar, toppingPrice);
+                    Topping newTopping = new Topping(topId,toppingVar, toppingPrice);
                     ToppingList.add(newTopping);
                 }
             } catch (SQLException throwables) {

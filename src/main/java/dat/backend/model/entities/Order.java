@@ -8,7 +8,7 @@ public class Order {
 private List<Orderline> cupcakeorder = new ArrayList<>();
 
 public Order(){
-    
+
 }
 public void add(Orderline orderline){
     cupcakeorder.add(orderline);

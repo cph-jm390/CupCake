@@ -119,4 +119,16 @@ public class User
                 ", rolle='" + role + '\'' +
                 '}';
     }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public void payOrder(User user, Order order){
+
+    }
 }
