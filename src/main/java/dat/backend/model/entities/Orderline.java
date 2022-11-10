@@ -3,14 +3,18 @@ package dat.backend.model.entities;
 public class Orderline {
 
      private int quantity;
+     private int topID;
+     private int bottomID;
+
+     public Orderline(int topID, int bottomID, int quantity) {
+          this.topID = topID;
+          this.bottomID = bottomID;
+          this.quantity = quantity;
+     }
+
      Topping top;
      Bottom bot;
 
-     public Orderline(Topping top, Bottom bot, int quantity) {
-          this.top=top;
-          this.bot = bot;
-          this.quantity = quantity;
-     }
 
 
 

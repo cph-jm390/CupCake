@@ -19,15 +19,18 @@ public class AddTocart extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        session = request.getSession();
-
         Order order = (Order) session.getAttribute("order");
 
-        int IdTopping = Integer.parseInt(request.getParameter("top"));
-        int IdBottom = Integer.parseInt(request.getParameter("bottom"));
+        int topID = Integer.parseInt(request.getParameter("top"));
+        int botID = Integer.parseInt(request.getParameter("bottom"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
 
-        Orderline orderline = new Orderline(IdBottom,IdBottom,quantity);
+        Orderline orderline = new Orderline(topID,botID,quantity);
+        order.add(orderline);
+        session.setAttribute("order", order);
+        request.setAttribute("ordersize",order.getNumberOfOrderlines());
+
+
 
     }
 }
