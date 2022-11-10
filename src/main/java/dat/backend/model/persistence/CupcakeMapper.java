@@ -16,18 +16,18 @@ public class CupcakeMapper {
 
         List<Bottom> BottomList = new ArrayList<>();
 
-        String sql = "select * from Bottom";
+        String sql = "select * from bottom";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    int botId = rs.getInt("idBottom");
-                    String bottomVar = rs.getString("bottomVar");
-                    int bottomPrice = rs.getInt("bottomPrice");
+                    int idBottom = rs.getInt("idBottom");
+                    String BottomVar = rs.getString("BottomVar");
+                    int BottomPrice = rs.getInt("BottomPrice");
 
-                    Bottom newBottom = new Bottom(botId, bottomVar, bottomPrice);
+                    Bottom newBottom = new Bottom(idBottom, BottomVar, BottomPrice);
                     BottomList.add(newBottom);
                 }
             } catch (SQLException throwables) {
@@ -39,12 +39,12 @@ public class CupcakeMapper {
         return BottomList;
     }
 
-    public static void toggleBottom(String bottomVar, ConnectionPool connectionPool) {
+    public static void toggleBottom(String BottomVar, ConnectionPool connectionPool) {
 
-        String sql = "UPDATE Bottom SET done = (1 - done) WHERE bottomVar = ?";
+        String sql = "UPDATE bottom SET done = (1 - done) WHERE BottomVar = ?";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setString(1, bottomVar);
+                ps.setString(1, BottomVar);
                 ps.executeUpdate();
 
             } catch (SQLException e) {
@@ -59,7 +59,7 @@ public class CupcakeMapper {
 
         List<Topping> ToppingList = new ArrayList<>();
 
-        String sql = "select * from Topping";
+        String sql = "select * from topping";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -68,7 +68,7 @@ public class CupcakeMapper {
                 while (rs.next()) {
                     int topId=rs.getInt("idTopping");
                     String toppingVar = rs.getString("ToppingVar");
-                    int toppingPrice = rs.getInt("toppingPrice");
+                    int toppingPrice = rs.getInt("ToppingPrice");
 
                     Topping newTopping = new Topping(topId,toppingVar, toppingPrice);
                     ToppingList.add(newTopping);
@@ -84,7 +84,7 @@ public class CupcakeMapper {
 
     public static void toggleTopping(String ToppingVar, ConnectionPool connectionPool) {
 
-        String sql = "UPDATE Topping SET done = (1 - done) WHERE ToppingVar = ?";
+        String sql = "UPDATE topping SET done = (1 - done) WHERE ToppingVar = ?";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setString(1, ToppingVar);

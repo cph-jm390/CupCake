@@ -2,13 +2,13 @@ package dat.backend.model.entities;
 
 public class Bottom {
 
-    int botId;
+    int idBottom;
     String bottomVar;
 
     int bottomPrice;
 
-    public Bottom(int botId, String bottomVar, int bottomPrice) {
-        this.botId=botId;
+    public Bottom(int idBottom, String bottomVar, int bottomPrice) {
+        this.idBottom=idBottom;
         this.bottomVar = bottomVar;
         this.bottomPrice = bottomPrice;
     }

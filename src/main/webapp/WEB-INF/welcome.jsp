@@ -1,7 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page errorPage="../error.jsp" isErrorPage="false" %>
+
+
+
 
 <t:CupCakeLogo>
     <jsp:attribute name="header">
@@ -35,7 +37,7 @@
 
             <select name="quantity">
                 <option value="1">1</option>
-                <option value="2">2</option>0
+                <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
@@ -44,16 +46,15 @@
             <button name="addToCart">Add To Cart</button>
         </form>
 
-        Antal linjer i kurven: ${requestScope.ordersize}
-<<<<<<< Updated upstream
-        Indhold i kurv:
-        <c:forEach var="item" items="$sessionScope.cart.CupcakeList}">
-            ${item.topID} BotID: ${item.botID} Antal: ${item.quantity}
+       <h2> Antal linjer i kurven: ${requestScope.cartsize}</h2>
+
+
+        <h2>Indhold i kurv:</h2>
+        <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
+            TOPID: ${item.idTopping} BOTID: ${item.idBottom} QUANT: ${item.quantity}
+
         </c:forEach>
-=======
-        Indhold i kurv: ${requestScope.cartsize}
-        
->>>>>>> Stashed changes
+
 
     </jsp:body>
 
