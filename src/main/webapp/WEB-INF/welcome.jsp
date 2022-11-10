@@ -44,7 +44,6 @@
             <button name="addToCart">Add To Cart</button>
         </form>
 
-        Antal linjer i kurven: ${requestScope.ordersize}
         Indhold i kurv: ${requestScope.cartsize}
 
     </jsp:body>
