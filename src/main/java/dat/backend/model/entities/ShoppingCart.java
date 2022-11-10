@@ -13,7 +13,7 @@ public void add(Cupcake cupcake){
     cupcakeList.add(cupcake);
 }
 
-public int getNumberOfOrderlines()
+public int getNumberOfCupcakes()
 {
     return cupcakeList.size();
 }

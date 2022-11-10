@@ -8,8 +8,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "AddTocart", value = "/addtocart")
-public class AddTocart extends HttpServlet {
+@WebServlet(name = "AddToCart", value = "/addtocart")
+public class AddToCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -28,7 +28,7 @@ public class AddTocart extends HttpServlet {
         Cupcake cupcake = new Cupcake(topID,botID,quantity);
         cart.add(cupcake);
         session.setAttribute("cart", cart);
-        request.setAttribute("ordersize", cart.getNumberOfOrderlines());
+        request.setAttribute("cartsize", cart.getNumberOfCupcakes());
 
 
 
