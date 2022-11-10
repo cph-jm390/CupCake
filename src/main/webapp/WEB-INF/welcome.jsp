@@ -13,7 +13,7 @@
         <h1>Welcome to the Shopping Page</h1>
 
         <form action="addtocart" method="post">
-            <select name="cupcakes" id="bottom">
+            <select name="bottom">
                 <option value="1">Almond (7kr)</option>
                 <option value="2">Chocolate (5kr)</option>
                 <option value="3">Nutmeg (6kr)</option>
@@ -21,7 +21,7 @@
                 <option value="5">Vanilla (5kr)</option>
             </select>
 
-            <select name="cupcakes" id="topping">
+            <select name="topping">
                 <option value="1">Blue Cheese (9kr)</option>
                 <option value="2">Blueberry (5kr)</option>
                 <option value="3">Chocolate (5kr)</option>
@@ -33,7 +33,7 @@
                 <option value="9">Strawberry (6kr)</option>
             </select>
 
-            <select name="cupcakes" id="quantity">
+            <select name="quantity">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
