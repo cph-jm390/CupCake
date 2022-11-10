@@ -46,7 +46,9 @@
 
         Antal linjer i kurven: ${requestScope.ordersize}
         Indhold i kurv:
-        
+        <c:forEach var="item" items="$sessionScope.cart.CupcakeList}">
+            ${item.topID} BotID: ${item.botID} Antal: ${item.quantity}
+        </c:forEach>
 
     </jsp:body>
 

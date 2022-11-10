@@ -4,11 +4,11 @@ public class Cupcake {
 
      private int quantity;
      private int topID;
-     private int bottomID;
+     private int botID;
 
-     public Cupcake(int topID, int bottomID, int quantity) {
+     public Cupcake(int topID, int botID, int quantity) {
           this.topID = topID;
-          this.bottomID = bottomID;
+          this.botID = botID;
           this.quantity = quantity;
      }
 
