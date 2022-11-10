@@ -19,14 +19,16 @@ public class AddToCart extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         ShoppingCart cart= (ShoppingCart) session.getAttribute("cart");
-        int topId = Integer.parseInt(request.getParameter("topping"));
-        int bottomId = Integer.parseInt(request.getParameter("bottom"));
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        Cupcake cupcake = new Cupcake(topId,bottomId,quantity);
-        cart.add(cupcake);
-        session.setAttribute("cart", cart);
-        request.setAttribute("cartsize", cart.getNumberOfCupcakes());
-        request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request,response)   ;
+
+        int idTopping = Integer.parseInt(request.getParameter("topping"));
+    int idBottom = Integer.parseInt(request.getParameter("bottom"));
+    int quantity = Integer.parseInt(request.getParameter("quantity"));
+
+    Cupcake cupcake = new Cupcake(idTopping,idBottom,quantity);
+    cart.add(cupcake);
+    session.setAttribute("cart", cart);
+    request.setAttribute("cartsize", cart.getNumberOfCupcakes());
+    request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request,response)   ;
 
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
-private List<Cupcake> cupcakeList = new ArrayList<>();
+List<Cupcake> cupcakeList = new ArrayList<>();
 
 public ShoppingCart(){
 
@@ -18,4 +18,11 @@ public int getNumberOfCupcakes()
     return cupcakeList.size();
 }
 
+    public List<Cupcake> getCupcakeList() {
+        return cupcakeList;
+    }
+
+    public void setCupcakeList(List<Cupcake> cupcakeList) {
+        this.cupcakeList = cupcakeList;
+    }
 }
