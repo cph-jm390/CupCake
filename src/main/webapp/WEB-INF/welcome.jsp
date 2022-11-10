@@ -50,10 +50,11 @@
         <h2>
             Indhold i kurv:
         </h2>
+
         <c:forEach var="item" items="${sessionsScope.cart.cupcakeList}">
             TopID: ${item.topID} BottomID: ${item.botID} Quantity: ${item.quantity}<br/>
-
         </c:forEach>
+
 
 
     </jsp:body>

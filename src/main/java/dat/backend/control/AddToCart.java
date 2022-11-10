@@ -29,7 +29,7 @@ public class AddToCart extends HttpServlet {
         session.setAttribute("cart", cart);
         request.setAttribute("cartsize", cart.getNumberOfCupcakes());
 
-        request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request,response)   ;
+        request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
 
     }
 }
