@@ -4,6 +4,7 @@ import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Item;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
+import dat.backend.model.persistence.UserFacade;
 import dat.backend.model.persistence.ConnectionPool;
 
 import javax.servlet.ServletException;
