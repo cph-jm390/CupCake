@@ -2,6 +2,7 @@ package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Item;
+import dat.backend.model.entities.Order;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.UserFacade;
@@ -46,9 +47,9 @@ public class Login extends HttpServlet
             User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
-
+            Order order = new Order();
+            session.setAttribute("order", order);
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
-
         }
         catch (DatabaseException e)
         {
@@ -56,5 +57,4 @@ public class Login extends HttpServlet
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
-
 }
