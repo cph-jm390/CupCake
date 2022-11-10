@@ -18,12 +18,16 @@ public class AddTocart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+<<<<<<< Updated upstream
         HttpSession session = request.getSession();
         session = request.getSession();
 
         Order order = (Order) session.getAttribute("order");
 
         int IdTopping = Integer.parseInt(request.getParameter("top"));
+=======
+        int IdTopping = Integer.parseInt(request.getParameter("topping"));
+>>>>>>> Stashed changes
         int IdBottom = Integer.parseInt(request.getParameter("bottom"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
 
