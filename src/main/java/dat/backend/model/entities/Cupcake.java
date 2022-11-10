@@ -15,10 +15,13 @@ public class Cupcake {
      Topping top;
      Bottom bot;
 
+     public int getTopID() {
+          return topID;
+     }
 
-
-
-
+     public int getBotID() {
+          return botID;
+     }
 
      public int getQuantity() {
           return quantity;
