@@ -128,7 +128,7 @@ public class User
         this.balance = balance;
     }
 
-    public void payOrder(User user, Order order){
+    public void payOrder(User user, ShoppingCart shoppingCart){
 
     }
 }

@@ -1,12 +1,12 @@
 package dat.backend.model.entities;
 
-public class Orderline {
+public class Cupcake {
 
      private int quantity;
      private int topID;
      private int bottomID;
 
-     public Orderline(int topID, int bottomID, int quantity) {
+     public Cupcake(int topID, int bottomID, int quantity) {
           this.topID = topID;
           this.bottomID = bottomID;
           this.quantity = quantity;
@@ -46,7 +46,7 @@ public class Orderline {
 
      @Override
      public String toString() {
-          return "Orderline{" +
+          return "Cupcake{" +
                   "quantity=" + quantity +
                   ", top=" + top +
                   ", bot=" + bot +
