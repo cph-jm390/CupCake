@@ -46,6 +46,7 @@
             <button name="addToCart">Add To Cart</button>
         </form>
 
+<<<<<<< main
        <h2> Antal linjer i kurven: ${requestScope.cartsize}</h2>
 
 
@@ -55,6 +56,18 @@
 
         </c:forEach>
 
+=======
+<<<<<<< main
+        Antal linjer i kurven: ${requestScope.ordersize}
+        Indhold i kurv: ${requestScope.cartsize}
+=======
+        Antal linjer i kurven: ${requestScope.cartsize}
+        Indhold i kurv:
+        <c:forEach var="item" items="${sessionScope.cart.CupcakeList}">
+            ${item.topID} BotID: ${item.botID} Antal: ${item.quantity}
+        </c:forEach>
+>>>>>>> Minor changes in Welcome
+>>>>>>> Minor changes in Welcome
 
     </jsp:body>
 
