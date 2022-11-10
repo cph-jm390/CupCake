@@ -9,7 +9,7 @@ public class Orderline {
      int Quantity;
      int OrderLineTotal;
      Topping topping = new Topping ("Gren", 5);
-     Bottom bottom = new Bottom ("håndrevet bluewaffle", 7)
+     Bottom bottom = new Bottom ("håndrevet bluewaffle", 7);
           /* måske have topping+bottom som objekter med deres variable
           Topping topping = new topping
 
@@ -21,11 +21,13 @@ public class Orderline {
           Quantity = quantity;
           OrderLineTotal = (topping.getToppingPrice()+bottom.getBottomPrice())*quantity;
      }
-
+     /*
      public int orderLinecalc(Topping topping, Bottom bottom, int quantity){
         int orderLineTotal = (topping.getPrice+bottom.getPrice)*quantity;
                   return orderLineTotal;
      }
+
+      */
 
 
 }

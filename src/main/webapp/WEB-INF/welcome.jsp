@@ -5,73 +5,43 @@
 
 <t:CupCakeLogo>
     <jsp:attribute name="header">
-         Welcome to the logged in area
+         Shopping Page
     </jsp:attribute>
 
     <jsp:body>
 
-        <p>You should be logged in now</p>
+        <h1>Welcome to the Shopping Page</h1>
 
-        <form method="post">
+        <form action="addtocart" method="post">
+            <select name="cupcakes" id="bottom">
+                <option value="1">Almond (7kr)</option>
+                <option value="2">Chocolate (5kr)</option>
+                <option value="3">Nutmeg (6kr)</option>
+                <option value="4">Pistacio (6kr)</option>
+                <option value="5">Vanilla (5kr)</option>
+            </select>
 
-            <div class="mb-4">
-                <input type="text" name="name"/>
-                <button formaction="additem">
-                    Add Item
-                </button>
-            </div>
+            <select name="cupcakes" id="topping">
+                <option value="1">Blue Cheese (9kr)</option>
+                <option value="2">Blueberry (5kr)</option>
+                <option value="3">Chocolate (5kr)</option>
+                <option value="4">Crispy (6kr)</option>
+                <option value="5">Lemon (8kr)</option>
+                <option value="6">Orange (8kr)</option>
+                <option value="7">Rasberry (5kr)</option>
+                <option value="8">Rum/Raisin (7kr)</option>
+                <option value="9">Strawberry (6kr)</option>
+            </select>
 
+            <select name="cupcakes" id="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-            <h3>Doing</h3>
-            <table class="table table-striped">
-                <thread>
-                    <tr>
-                        <th>Item</th>
-                        <th>Action</th>
-                    </tr>
-                </thread>
-                <c:forEach var="item" items="${requestScope.itemList}">
-                    <c:if test="${item.done == false}">
-                        <tr>
-                            <td>
-                                    ${item.name} (${item.created})
-                            </td>
-                            <td>
-                                <button formaction="toggleitem" name="item_id" value="${item.id}">
-                                    done
-                                </button>
-                                <button formaction="editform" name="item_id" value="${item.id}">
-                                    Edit
-                                </button>
-                            </td>
-                        </tr>
-                    </c:if>
-                </c:forEach>
-            </table>
-
-            <h3>Done</h3>
-            <table class="table table-striped">
-                <thread>
-                    <tr>
-                        <th>Item</th>
-                        <th>Action</th>
-                    </tr>
-                </thread>
-                <c:forEach var="item" items="${requestScope.itemList}">
-                    <c:if test="${item.done == true}">
-                        <tr>
-                            <td>
-                                    ${item.name} (${item.created})
-                            </td>
-                            <td>
-                                <button formaction="toggleitem" name="item_id" value="${item.id}">
-                                    Undo
-                                </button>
-                            </td>
-                        </tr>
-                    </c:if>
-                </c:forEach>
-            </table>
+            <button name="addToCart">Add To Cart</button>
         </form>
 
 

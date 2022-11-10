@@ -5,18 +5,14 @@
 
 <t:CupCakeLogo>
     <jsp:attribute name="header">
-         Welcome to the frontpage
+         Olsker Cupcake
     </jsp:attribute>
 
     <jsp:body>
 
-        <form action="login" method="post">
-            <label for="username">Username: </label>
-            <input type="text" id="username" name="username"/>
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password"/>
-            <input type="submit"  value="Log in"/>
-        </form>
+        <p>Log venligst på systemet først</p>
+        <p>Derefter kan du shoppe løs</p>
+        <p>Det kan du gøre her: <a href="login.jsp">login</a> </p>
 
     </jsp:body>
 
