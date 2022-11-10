@@ -1,16 +1,17 @@
 package dat.backend.model.entities;
 
 import java.security.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
-    int idOrder;
-    int idUser;
-    private Timestamp created;
-    String status;
+private List<Orderline> cupcakeorder = new ArrayList<>();
 
-    public Order(int idUser, Timestamp created, String status) {
-        this.idUser = idUser;
-        this.created = created;
-        this.status = status;
-    }
+public Order(){
+    
+}
+public void add(Orderline orderline){
+    cupcakeorder.add(orderline);
+
+}
 }
