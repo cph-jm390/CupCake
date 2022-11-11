@@ -29,9 +29,16 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/about.jsp">About</a>
+                    <c:if test="${sessionScope.user.username!=null&&!sessionScope.user.role.equalsIgnoreCase('admin')}">
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/about.jsp">${sessionScope.user.username}</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user.role.equalsIgnoreCase('admin')}">
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/admin.jsp">${sessionScope.user.username}</a>
+                    </c:if>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/itemList">Itemlist</a>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 3</a>
+                    
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/WEB-INF/welcome.jsp">Home</a>
+
                     <c:if test="${sessionScope.user == null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
                     </c:if>

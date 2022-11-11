@@ -5,13 +5,14 @@
 
 <t:CupCakeLogo>
     <jsp:attribute name="header">
-       Profile
+         Admin Side
     </jsp:attribute>
 
     <jsp:body>
 
-        <h3>Your email is: ${sessionScope.user.username} </h3>
-        <p>Bottom text.</p>
+        <h1>Welcome to the Admin Page</h1>
+
+
 
     </jsp:body>
 
