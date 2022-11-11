@@ -5,7 +5,7 @@
 
 <t:CupCakeLogo>
     <jsp:attribute name="header">
-       Your email is: </br> ${sessionScope.user.username}
+       Profile
     </jsp:attribute>
 
     <jsp:body>
