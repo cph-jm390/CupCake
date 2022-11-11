@@ -32,13 +32,12 @@ public class AddToCart extends HttpServlet {
     int topPris = CupcakeFacade.getTopping(connectionPool).get(idTopping-1).getToppingPrice()*quantity;
     int botPris = CupcakeFacade.getBottom(connectionPool).get(idBottom-1).getBottomPrice()*quantity;
     totalPris+=topPris+botPris;
-    String toppingVar=CupcakeFacade.getTopping(connectionPool).get(idTopping).getToppingVar();
-    String bottomVar=CupcakeFacade.getBottom(connectionPool).get(idBottom).getBottomVar();
-    cupcakeNames.add(toppingVar);
-    cupcakeNames.add(bottomVar);
+    String toppingVar=CupcakeFacade.getTopping(connectionPool).get(idTopping-1).getToppingVar();
+    String bottomVar=CupcakeFacade.getBottom(connectionPool).get(idBottom-1).getBottomVar();
 
 
-    Cupcake cupcake = new Cupcake(idTopping,idBottom,quantity);
+
+    Cupcake cupcake = new Cupcake(idTopping,idBottom,quantity,toppingVar,bottomVar);
     cart.add(cupcake);
     session.setAttribute("cart", cart);
         session.setAttribute("cupcakeNames", cupcakeNames);
