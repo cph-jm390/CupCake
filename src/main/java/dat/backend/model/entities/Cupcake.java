@@ -12,6 +12,20 @@ public class Cupcake {
           this.quantity = quantity;
      }
 
+<<<<<<< HEAD
+=======
+     Topping top;
+     Bottom bot;
+
+     public int getTopID() {
+          return topID;
+     }
+
+     public int getBotID() {
+          return botID;
+     }
+
+>>>>>>> WTest
      public int getQuantity() {
           return quantity;
      }

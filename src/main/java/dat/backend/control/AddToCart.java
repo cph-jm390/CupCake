@@ -20,6 +20,7 @@ public class AddToCart extends HttpServlet {
         HttpSession session = request.getSession();
         ShoppingCart cart= (ShoppingCart) session.getAttribute("cart");
 
+<<<<<<< HEAD
         int idTopping = Integer.parseInt(request.getParameter("topping"));
     int idBottom = Integer.parseInt(request.getParameter("bottom"));
     int quantity = Integer.parseInt(request.getParameter("quantity"));
@@ -29,6 +30,18 @@ public class AddToCart extends HttpServlet {
     session.setAttribute("cart", cart);
     request.setAttribute("cartsize", cart.getNumberOfCupcakes());
     request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request,response)   ;
+=======
+        int topID = Integer.parseInt(request.getParameter("topping"));
+        int botID = Integer.parseInt(request.getParameter("bottom"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+
+        Cupcake cupcake = new Cupcake(topID, botID, quantity);
+        cart.add(cupcake);
+        session.setAttribute("cart", cart);
+        request.setAttribute("cartsize", cart.getNumberOfCupcakes());
+
+        request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+>>>>>>> WTest
 
     }
 }

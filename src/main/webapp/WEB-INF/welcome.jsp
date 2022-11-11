@@ -1,9 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> WTest
 
 <t:CupCakeLogo>
     <jsp:attribute name="header">
@@ -46,6 +49,7 @@
             <button name="addToCart">Add To Cart</button>
         </form>
 
+<<<<<<< HEAD
        <h2> Antal linjer i kurven: ${requestScope.cartsize}</h2>
 
 
@@ -53,6 +57,18 @@
         <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
             TOPID: ${item.idTopping} BOTID: ${item.idBottom} QUANT: ${item.quantity}
 
+=======
+
+        <h2>
+            Antal linjer i kurven: ${requestScope.cartsize}
+        </h2>
+        <h2>
+            Indhold i kurv:
+        </h2>
+
+        <c:forEach var="item" items="${sessionsScope.cart.cupcakeList}">
+            TopID: ${item.topID} BottomID: ${item.botID} Quantity: ${item.quantity}<br/>
+>>>>>>> WTest
         </c:forEach>
 
 

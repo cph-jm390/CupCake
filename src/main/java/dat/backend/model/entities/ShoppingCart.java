@@ -21,10 +21,13 @@ public int getNumberOfCupcakes()
     public List<Cupcake> getCupcakeList() {
         return cupcakeList;
     }
+<<<<<<< HEAD
 
     public List<Cupcake> getCupcakeList() {
         return cupcakeList;
     }
+=======
+>>>>>>> WTest
 
     public void setCupcakeList(List<Cupcake> cupcakeList) {
         this.cupcakeList = cupcakeList;
