@@ -47,9 +47,13 @@
 
         <h2>Indhold i kurv:</h2>
         <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
-            TOPID: ${item.idTopping} BOTID: ${item.idBottom} QUANT: ${item.quantity}<br>
+            topping: ${item.toppingVar} bund: ${item.bottomVar} QUANT: ${item.quantity}
+            <br>
 
         </c:forEach>
+
+        <h2>pris: i kr ${requestScope.totalPris}</h2>
+
 
     </jsp:body>
 
