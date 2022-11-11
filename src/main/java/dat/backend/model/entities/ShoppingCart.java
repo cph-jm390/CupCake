@@ -14,17 +14,16 @@ import java.util.List;
 
 public class ShoppingCart {
 
-List<Cupcake> cupcakeList = new ArrayList<>();
+    List<Cupcake> cupcakeList = new ArrayList<>();
 
-    public ShoppingCart(){
+    public ShoppingCart() {
     }
 
-    public void add(Cupcake cupcake){
+    public void add(Cupcake cupcake) {
         cupcakeList.add(cupcake);
     }
 
-    public int getNumberOfCupcakes()
-    {
+    public int getNumberOfCupcakes() {
         return cupcakeList.size();
     }
 

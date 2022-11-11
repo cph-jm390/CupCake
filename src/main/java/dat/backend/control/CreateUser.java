@@ -37,7 +37,7 @@ public class CreateUser extends HttpServlet {
         String role = request.getParameter("role");
 
         try {
-            User user = UserFacade.createUser(username, password,role, connectionPool);
+            User user = UserFacade.createUser(username, password, role, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
 
