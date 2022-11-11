@@ -21,8 +21,8 @@ public class AddToCart extends HttpServlet {
         ShoppingCart cart= (ShoppingCart) session.getAttribute("cart");
 
         int idTopping = Integer.parseInt(request.getParameter("topping"));
-    int idBottom = Integer.parseInt(request.getParameter("bottom"));
-    int quantity = Integer.parseInt(request.getParameter("quantity"));
+        int idBottom = Integer.parseInt(request.getParameter("bottom"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
 
     Cupcake cupcake = new Cupcake(idTopping,idBottom,quantity);
     cart.add(cupcake);

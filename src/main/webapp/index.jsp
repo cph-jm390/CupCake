@@ -12,7 +12,9 @@
 
         <p>Log venligst på systemet først</p>
         <p>Derefter kan du shoppe løs</p>
-        <p>Det kan du gøre her: <a href="login.jsp">login</a></p>
+        <p>Det kan du gøre her: <a href="login.jsp">Login</a></p>
+        <p>Tryk her for at logge ind som admin: <a href="adminlogin.jsp">Her</a></p>
+
 
     </jsp:body>
 
