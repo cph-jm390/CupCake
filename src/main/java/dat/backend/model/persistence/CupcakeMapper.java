@@ -2,7 +2,6 @@ package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Bottom;
 import dat.backend.model.entities.Topping;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

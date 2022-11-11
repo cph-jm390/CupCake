@@ -7,8 +7,8 @@ public class ShoppingCart {
     List<Cupcake> cupcakeList = new ArrayList<>();
 
     public ShoppingCart(){
-
     }
+
     public void add(Cupcake cupcake){
         cupcakeList.add(cupcake);
     }
