@@ -39,12 +39,13 @@ public class CupcakeMapper {
         return BottomList;
     }
 
-    public static void toggleBottom(String BottomVar, ConnectionPool connectionPool) {
+    public static void toggleBottom(int idBottom, String BottomVar, ConnectionPool connectionPool) {
 
         String sql = "UPDATE bottom SET done = (1 - done) WHERE BottomVar = ?";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setString(1, BottomVar);
+                ps.setInt(1,idBottom);
+                ps.setString(2, BottomVar);
                 ps.executeUpdate();
 
             } catch (SQLException e) {
@@ -58,7 +59,6 @@ public class CupcakeMapper {
     static List<Topping> getTopping(ConnectionPool connectionPool) {
 
         List<Topping> ToppingList = new ArrayList<>();
-
         String sql = "select * from topping";
 
         try (Connection connection = connectionPool.getConnection()) {
@@ -82,12 +82,13 @@ public class CupcakeMapper {
         return ToppingList;
     }
 
-    public static void toggleTopping(String ToppingVar, ConnectionPool connectionPool) {
+    public static void toggleTopping(int idTopping, String ToppingVar, ConnectionPool connectionPool) {
 
         String sql = "UPDATE topping SET done = (1 - done) WHERE ToppingVar = ?";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setString(1, ToppingVar);
+                ps.setInt(1,idTopping);
+                ps.setString(2, ToppingVar);
                 ps.executeUpdate();
 
             } catch (SQLException e) {
