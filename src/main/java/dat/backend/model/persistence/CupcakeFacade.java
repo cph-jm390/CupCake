@@ -2,7 +2,6 @@ package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Bottom;
 import dat.backend.model.entities.Topping;
-
 import java.util.List;
 
 public class CupcakeFacade {
@@ -11,14 +10,15 @@ public class CupcakeFacade {
         return CupcakeMapper.getBottom(connectionPool);
     }
 
-    public static void toggleBottom(String bottomVar, ConnectionPool connectionPool) {
-        CupcakeMapper.toggleBottom(bottomVar, connectionPool);
+    public static void toggleBottom(int idBottom, String bottomVar, ConnectionPool connectionPool) {
+        CupcakeMapper.toggleBottom(idBottom, bottomVar, connectionPool);
     }
+
     public static List<Topping> getTopping (ConnectionPool connectionPool){
         return CupcakeMapper.getTopping(connectionPool);
     }
 
-    public static void toggleToping(String toppingVar, ConnectionPool connectionPool) {
-        CupcakeMapper.toggleTopping(toppingVar, connectionPool);
+    public static void toggleToping(int idTopping,String toppingVar, ConnectionPool connectionPool) {
+        CupcakeMapper.toggleTopping(idTopping,toppingVar, connectionPool);
     }
 }
