@@ -52,13 +52,6 @@
 
         </c:forEach>
 
-        Antal linjer i kurven: ${requestScope.cartsize}
-        Indhold i kurv:
-        <c:forEach var="item" items="${sessionScope.cart.CupcakeList}">
-            TopID: ${item.topID} BotID: ${item.botID} Antal: ${item.quantity}
-        </c:forEach>
-
-
     </jsp:body>
 
 </t:CupCakeLogo>
