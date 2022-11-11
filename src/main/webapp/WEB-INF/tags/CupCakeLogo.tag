@@ -29,7 +29,9 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/about.jsp">About</a>
+                    <c:if test="${sessionScope.user.username!=null}">
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/about.jsp">${sessionScope.user.username}</a>
+                    </c:if>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/itemList">Itemlist</a>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 3</a>
                     <c:if test="${sessionScope.user == null }">
