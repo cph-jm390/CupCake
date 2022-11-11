@@ -2,9 +2,6 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-
-
 <t:CupCakeLogo>
     <jsp:attribute name="header">
          Shopping Page
@@ -46,7 +43,6 @@
             <button name="addToCart">Add To Cart</button>
         </form>
 
-<<<<<<< main
        <h2> Antal linjer i kurven: ${requestScope.cartsize}</h2>
 
 
@@ -56,21 +52,11 @@
 
         </c:forEach>
 
-=======
-<<<<<<< main
-        Antal linjer i kurven: ${requestScope.ordersize}
-        Indhold i kurv: ${requestScope.cartsize}
-=======
         Antal linjer i kurven: ${requestScope.cartsize}
         Indhold i kurv:
         <c:forEach var="item" items="${sessionScope.cart.CupcakeList}">
             TopID: ${item.topID} BotID: ${item.botID} Antal: ${item.quantity}
         </c:forEach>
->>>>>>> Minor changes in Welcome
->>>>>>> Minor changes in Welcome
-
-        <h3>Indhold i kurv:</h3>
-        <c:forEach var="item"
 
     </jsp:body>
 
