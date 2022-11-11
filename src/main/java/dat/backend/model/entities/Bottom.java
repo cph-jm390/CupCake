@@ -4,7 +4,6 @@ public class Bottom {
 
     int idBottom;
     String bottomVar;
-
     int bottomPrice;
 
     public Bottom(int idBottom, String bottomVar, int bottomPrice) {

@@ -2,15 +2,18 @@ package dat.backend.model.entities;
 
 public class Topping {
 
-
     int idTopping;
-   String toppingVar;
-   int toppingPrice;
+    String toppingVar;
+    int toppingPrice;
 
     public Topping(int idTopping, String toppingVar, int toppingPrice) {
         this.idTopping=idTopping;
         this.toppingVar = toppingVar;
         this.toppingPrice = toppingPrice;
+    }
+
+    public int getIdTopping() {
+        return idTopping;
     }
 
     public String getToppingVar() {
