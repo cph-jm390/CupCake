@@ -36,7 +36,6 @@ public class AddToCart extends HttpServlet {
         String toppingVar = CupcakeFacade.getTopping(connectionPool).get(idTopping - 1).getToppingVar();
         String bottomVar = CupcakeFacade.getBottom(connectionPool).get(idBottom - 1).getBottomVar();
 
-
         Cupcake cupcake = new Cupcake(idTopping, idBottom, quantity, toppingVar, bottomVar);
         cart.add(cupcake);
         session.setAttribute("cart", cart);
