@@ -18,30 +18,17 @@ public class AddToCart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        ShoppingCart cart= (ShoppingCart) session.getAttribute("cart");
-
-<<<<<<< HEAD
+        ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
         int idTopping = Integer.parseInt(request.getParameter("topping"));
-    int idBottom = Integer.parseInt(request.getParameter("bottom"));
-    int quantity = Integer.parseInt(request.getParameter("quantity"));
-
-    Cupcake cupcake = new Cupcake(idTopping,idBottom,quantity);
-    cart.add(cupcake);
-    session.setAttribute("cart", cart);
-    request.setAttribute("cartsize", cart.getNumberOfCupcakes());
-    request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request,response)   ;
-=======
-        int topID = Integer.parseInt(request.getParameter("topping"));
-        int botID = Integer.parseInt(request.getParameter("bottom"));
+        int idBottom = Integer.parseInt(request.getParameter("bottom"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
 
-        Cupcake cupcake = new Cupcake(topID, botID, quantity);
+        Cupcake cupcake = new Cupcake(idTopping, idBottom, quantity);
         cart.add(cupcake);
         session.setAttribute("cart", cart);
         request.setAttribute("cartsize", cart.getNumberOfCupcakes());
 
         request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
->>>>>>> WTest
 
     }
 }

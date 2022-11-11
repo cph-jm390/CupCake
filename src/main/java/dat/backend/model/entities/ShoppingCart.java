@@ -4,30 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
-List<Cupcake> cupcakeList = new ArrayList<>();
+    List<Cupcake> cupcakeList = new ArrayList<>();
 
 
-    public ShoppingCart(){
+    public ShoppingCart() {
 
-}
-public void add(Cupcake cupcake){
-    cupcakeList.add(cupcake);
-}
+    }
 
-public int getNumberOfCupcakes()
-{
-    return cupcakeList.size();
-}
+    public void add(Cupcake cupcake) {
+        cupcakeList.add(cupcake);
+    }
+
+    public int getNumberOfCupcakes() {
+        return cupcakeList.size();
+    }
+
+
     public List<Cupcake> getCupcakeList() {
         return cupcakeList;
     }
-<<<<<<< HEAD
 
-    public List<Cupcake> getCupcakeList() {
-        return cupcakeList;
-    }
-=======
->>>>>>> WTest
 
     public void setCupcakeList(List<Cupcake> cupcakeList) {
         this.cupcakeList = cupcakeList;
