@@ -71,7 +71,8 @@ class UserMapper
         return user;
     }
 
-    /*static List<Item> getUsers(ConnectionPool connectionPool) {
+    /*
+    static List<Item> getUsers(ConnectionPool connectionPool) {
 
         List<Item> userList = new ArrayList<>();
 
