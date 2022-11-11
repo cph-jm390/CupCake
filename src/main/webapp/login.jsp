@@ -11,15 +11,27 @@
 
     <jsp:body>
 
-        <h3>You can log in here</h3>
+        <h3>You can log in here:</h3>
 
         <form action="login" method="post">
             <label for="username">Username: </label>
             <input type="text" id="username" name="username"/>
             <label for="password">Password: </label>
             <input type="password" id="password" name="password"/>
-            <input type="submit"  value="Log in"/>
+            <input type="submit" value="Log in"/>
         </form>
+
+        <h3>You can also create a user here:</h3>
+
+        <form action="createuser" method="post">
+            <label for="username">Username: </label>
+            <input type="text" id="newUsername" name="username"/>
+            <label for="password">Password: </label>
+            <input type="password" id="newPassword" name="password"/>
+            <input type="submit" value="Create User"/>
+
+        </form>
+
 
     </jsp:body>
 </t:CupCakeLogo>

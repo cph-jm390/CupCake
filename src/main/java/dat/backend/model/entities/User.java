@@ -39,8 +39,7 @@ import java.util.Objects;
 
      */
 //TODO
-public class User
-{
+public class User {
     private String username;
     private String password;
     private String role;
@@ -128,7 +127,7 @@ public class User
         this.balance = balance;
     }
 
-    public void payOrder(User user, ShoppingCart shoppingCart){
+    public void payOrder(User user, ShoppingCart cart){
 
     }
 }

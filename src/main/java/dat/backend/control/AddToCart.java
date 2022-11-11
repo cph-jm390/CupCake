@@ -45,5 +45,7 @@ public class AddToCart extends HttpServlet {
         request.setAttribute("totalPris", totalPris);
     request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request,response)   ;
 
+        request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+
     }
 }

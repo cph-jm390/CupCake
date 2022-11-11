@@ -2,9 +2,9 @@ package dat.backend.model.entities;
 
 public class Cupcake {
 
-     private int quantity;
-     private int idTopping;
-     private int idBottom;
+    private int quantity;
+    private int idTopping;
+    private int idBottom;
 
      private String toppingVar;
 
@@ -28,13 +28,13 @@ public class Cupcake {
           return quantity;
      }
 
-     public int getIdTopping() {
-          return idTopping;
-     }
+    public int getIdTopping() {
+        return idTopping;
+    }
 
-     public int getIdBottom() {
-          return idBottom;
-     }
+    public int getIdBottom() {
+        return idBottom;
+    }
 
      public String getToppingVar() {
           return toppingVar;

@@ -14,7 +14,7 @@
 
         <form method="post">
             <h3>Edit item name</h3>
-            <input style="width:300px" type ="text" name="name" value="${requestScope.item.name}"/>
+            <input style="width:300px" type="text" name="name" value="${requestScope.item.name}"/>
             <button formaction="updateitem" name="item_id" value="${requestScope.item.id}">
                 Update item
             </button>
