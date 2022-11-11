@@ -24,4 +24,15 @@ public class Admin extends UserFacade {
     public String getRole() {
         return role;
     }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (!(o instanceof Admin)) return false;
+        Admin admin = (Admin) o;
+        return getUsername().equals(admin.getUsername()) && getPassword().equals(admin.getPassword()) &&
+                getRole().equals(admin.getRole());
+    }
+
 }

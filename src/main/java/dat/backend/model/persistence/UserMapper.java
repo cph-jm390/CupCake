@@ -39,7 +39,7 @@ class UserMapper {
 
         Admin admin = null;
 
-        String sql = "SELECT * FROM User WHERE username = ? AND password = ? AND role = Admin";
+        String sql = "SELECT * FROM User WHERE username = ? AND password = ? AND role = ?";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
