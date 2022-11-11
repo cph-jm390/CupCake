@@ -5,13 +5,13 @@
 
 <t:CupCakeLogo>
     <jsp:attribute name="header">
-         About FourThingsPlus
+       Profile
     </jsp:attribute>
 
     <jsp:body>
 
-        <h3>About FourThingsPlus</h3>
-        <p>Velkommen til dette website. God fornøjelse.</p>
+        <h3>Your email is: ${sessionScope.user.username} </h3>
+        <p>Bottom text.</p>
 
     </jsp:body>
 

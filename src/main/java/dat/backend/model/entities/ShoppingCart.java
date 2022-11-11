@@ -18,8 +18,6 @@ public class ShoppingCart {
         return cupcakeList.size();
     }
 
-
-
     public List<Cupcake> getCupcakeList() {
         return cupcakeList;
     }
