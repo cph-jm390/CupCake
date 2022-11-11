@@ -54,6 +54,7 @@
             TOPID: ${item.idTopping} BOTID: ${item.idBottom} QUANT: ${item.quantity}
 
         </c:forEach>
+        <h2>pris: plz virk: ${requestScope.totalPris}</h2>
 
 
     </jsp:body>

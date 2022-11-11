@@ -7,6 +7,7 @@ import java.util.List;
 
 public class CupcakeFacade {
 
+
     public static List<Bottom> getBottom (ConnectionPool connectionPool){
         return CupcakeMapper.getBottom(connectionPool);
     }
@@ -21,4 +22,5 @@ public class CupcakeFacade {
     public static void toggleToping(String toppingVar, ConnectionPool connectionPool) {
         CupcakeMapper.toggleTopping(toppingVar, connectionPool);
     }
+
 }
