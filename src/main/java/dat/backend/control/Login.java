@@ -21,13 +21,11 @@ public class Login extends HttpServlet
     private ConnectionPool connectionPool;
 
     @Override
-    public void init() throws ServletException
-    {
+    public void init() throws ServletException {
         this.connectionPool = ApplicationStart.getConnectionPool();
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
-    {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // You shouldn't end up here with a GET-request, thus you get sent back to frontpage
         response.sendRedirect("index.jsp");
     }
@@ -45,7 +43,9 @@ public class Login extends HttpServlet
             User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
+
             ShoppingCart cart = new ShoppingCart();
+
             session.setAttribute("cart", cart);
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
         }
