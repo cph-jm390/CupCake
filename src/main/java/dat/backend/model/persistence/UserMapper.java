@@ -1,6 +1,5 @@
 package dat.backend.model.persistence;
 
-import dat.backend.model.entities.Admin;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 
@@ -34,31 +33,6 @@ class UserMapper {
         return user;
     }
 
-    static Admin adminLogin(String username, String password,String role, ConnectionPool connectionPool) throws DatabaseException {
-        Logger.getLogger("web").log(Level.INFO, "");
-
-        Admin admin = null;
-
-        String sql = "SELECT * FROM User WHERE username = ? AND password = ? AND role = ?";
-
-        try (Connection connection = connectionPool.getConnection()) {
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setString(1, username);
-                ps.setString(2, password);
-                ps.setString(3, role);
-                ResultSet rs = ps.executeQuery();
-                if (rs.next()) {
-                    admin = new Admin(username, password, role);
-                } else {
-                    throw new DatabaseException("Wrong username or password");
-                }
-            }
-        } catch (SQLException ex) {
-            throw new DatabaseException(ex, "Error logging in. Something went wrong with the database");
-        }
-        return admin;
-    }
-
     static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
         User user;
@@ -80,7 +54,6 @@ class UserMapper {
         }
         return user;
     }
-
 
     /*
     static List<Item> getUsers(ConnectionPool connectionPool) {
