@@ -33,7 +33,7 @@
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/about.jsp">${sessionScope.user.username}</a>
                     </c:if>
                     <c:if test="${sessionScope.user.role.equalsIgnoreCase('admin')}">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/WEB-INF/admin.jsp">${sessionScope.user.username}</a>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/admin.jsp">${sessionScope.user.username}</a>
                     </c:if>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/itemList">Itemlist</a>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 3</a>
