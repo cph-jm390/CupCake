@@ -1,6 +1,7 @@
 package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Bottom;
+import dat.backend.model.entities.Cupcake;
 import dat.backend.model.entities.Topping;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -98,4 +99,12 @@ ConnectionPool connectionPool =  new ConnectionPool();
         }
     }
 
+    public void insertCupcakeToDB(ArrayList<Cupcake> cupcakeList){
+        int idTopping;
+        int idBottom;
+        int quantity;
+        int topPris;
+        int botPris;
+
+    }
 }

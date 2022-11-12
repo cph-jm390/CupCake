@@ -44,7 +44,7 @@ public class CreateUser extends HttpServlet {
             ShoppingCart cart = new ShoppingCart();
 
             session.setAttribute("cart", cart);
-            request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+            request.getRequestDispatcher("welcome.jsp").forward(request, response);
         } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
