@@ -101,12 +101,31 @@ public class CupcakeMapper {
         }
     }
 
-    public void insertCupcakeToDB(ArrayList<Cupcake> cupcakeList){
+    public void insertCupcakeToDB(ArrayList<Cupcake> cupcakeList, ArrayList<Integer> priceList) {
         int idTopping;
         int idBottom;
         int quantity;
-        int topPris;
-        int botPris;
+        int orderlineTotalPrice;
+        String sql = "INSERT INTO orderline (idTopping, idBottom, Quantity, OrderlineTotalPrice) VALUES (?,?,?,?)";
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                for (int i = 0; i < priceList.size(); i++) {
+                    idTopping = cupcakeList.get(i).getIdTopping();
+                    idBottom = cupcakeList.get(i).getIdBottom();
+                    quantity = cupcakeList.get(i).getQuantity();
+                    orderlineTotalPrice = priceList.get(i);
 
+                    ps.setInt(1, idTopping);
+                    ps.setInt(2, idBottom);
+                    ps.setInt(3, quantity);
+                    ps.setInt(4, orderlineTotalPrice);
+                    ps.executeUpdate(sql);
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
