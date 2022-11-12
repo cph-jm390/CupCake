@@ -26,7 +26,7 @@ public class Checkout extends HttpServlet {
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
         
         CupcakeMapper cupcakeMapper = (CupcakeMapper) session.getAttribute("mapper");
-
+        ArrayList priceList = null;
         cupcakeMapper.insertCupcakeToDB(cart, priceList);
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
     }
