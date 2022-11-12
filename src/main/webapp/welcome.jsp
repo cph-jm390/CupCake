@@ -42,7 +42,9 @@
 
             <button name="addToCart">Add To Cart</button>
         </form>
-
+        <form action="checkout" method="post">
+            <button name="checkout">Checkout</button>
+        </form>
         <h2> Antal linjer i kurven: ${requestScope.cartsize}</h2>
 
         <h2>Indhold i kurv:</h2>

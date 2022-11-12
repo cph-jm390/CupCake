@@ -26,6 +26,7 @@ public class AddToCart extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+
         List<String> cupcakeNames = new ArrayList<>();
         int idTopping = Integer.parseInt(request.getParameter("topping"));
         int idBottom = Integer.parseInt(request.getParameter("bottom"));

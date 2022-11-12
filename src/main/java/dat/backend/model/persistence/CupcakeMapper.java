@@ -1,7 +1,7 @@
 package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Bottom;
-import dat.backend.model.entities.Cupcake;
+import dat.backend.model.entities.ShoppingCart;
 import dat.backend.model.entities.Topping;
 
 import java.sql.Connection;
@@ -101,24 +101,16 @@ public class CupcakeMapper {
         }
     }
 
-    public void insertCupcakeToDB(ArrayList<Cupcake> cupcakeList, ArrayList<Integer> priceList) {
-        int idTopping;
-        int idBottom;
-        int quantity;
-        int CupcakeTotalPrice;
-        String sql = "INSERT INTO orderline (idTopping, idBottom, Quantity, CupcakeTotalPrice) VALUES (?,?,?,?)";
+    public void insertCupcakeToDB(ShoppingCart cart, ArrayList<Integer> priceList) {
+        String sql = "INSERT INTO orderline (idTopping, idBottom, Quantity, OrderlineTotalPrice) VALUES (?,?,?,?)";
+
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 for (int i = 0; i < priceList.size(); i++) {
-                    idTopping = cupcakeList.get(i).getIdTopping();
-                    idBottom = cupcakeList.get(i).getIdBottom();
-                    quantity = cupcakeList.get(i).getQuantity();
-                    CupcakeTotalPrice = priceList.get(i);
-
-                    ps.setInt(1, idTopping);
-                    ps.setInt(2, idBottom);
-                    ps.setInt(3, quantity);
-                    ps.setInt(4, CupcakeTotalPrice);
+                    ps.setInt(1, cart.getCupcakeList().get(i).getIdTopping());
+                    ps.setInt(2, cart.getCupcakeList().get(i).getIdBottom());
+                    ps.setInt(3, cart.getCupcakeList().get(i).getQuantity());
+                    ps.setInt(4, priceList.get(i)); //OrderLineTotalPrice essentielt
                     ps.executeUpdate(sql);
                 }
             } catch (SQLException e) {
