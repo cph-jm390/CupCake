@@ -7,7 +7,7 @@ public class Topping {
     int toppingPrice;
 
     public Topping(int idTopping, String toppingVar, int toppingPrice) {
-        this.idTopping=idTopping;
+        this.idTopping = idTopping;
         this.toppingVar = toppingVar;
         this.toppingPrice = toppingPrice;
     }

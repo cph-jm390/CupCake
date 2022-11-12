@@ -3,6 +3,7 @@ package dat.backend.model.persistence;
 import dat.backend.model.entities.Bottom;
 import dat.backend.model.entities.Cupcake;
 import dat.backend.model.entities.Topping;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CupcakeMapper {
-ConnectionPool connectionPool =  new ConnectionPool();
+    ConnectionPool connectionPool = new ConnectionPool();
+
     static List<Bottom> getBottom(ConnectionPool connectionPool) {
 
         List<Bottom> BottomList = new ArrayList<>();
@@ -44,7 +46,7 @@ ConnectionPool connectionPool =  new ConnectionPool();
         String sql = "UPDATE bottom SET done = (1 - done) WHERE BottomVar = ?";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1,idBottom);
+                ps.setInt(1, idBottom);
                 ps.setString(2, BottomVar);
                 ps.executeUpdate();
 
@@ -66,11 +68,11 @@ ConnectionPool connectionPool =  new ConnectionPool();
 
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    int topId=rs.getInt("idTopping");
+                    int topId = rs.getInt("idTopping");
                     String toppingVar = rs.getString("ToppingVar");
                     int toppingPrice = rs.getInt("ToppingPrice");
 
-                    Topping newTopping = new Topping(topId,toppingVar, toppingPrice);
+                    Topping newTopping = new Topping(topId, toppingVar, toppingPrice);
                     ToppingList.add(newTopping);
                 }
             } catch (SQLException throwables) {
@@ -87,7 +89,7 @@ ConnectionPool connectionPool =  new ConnectionPool();
         String sql = "UPDATE topping SET done = (1 - done) WHERE ToppingVar = ?";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1,idTopping);
+                ps.setInt(1, idTopping);
                 ps.setString(2, ToppingVar);
                 ps.executeUpdate();
 
