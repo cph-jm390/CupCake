@@ -13,15 +13,14 @@
 
         <h1>Welcome to the Admin Page</h1>
 
-
         <table>
-            <c:forEach var="user" items="${requestScope.userList}">
+            <c:forEach var="item" items="${requestScope.userList}">
                 <tr>
-                    <td>${user.username}</td>
-                    <td>${user.password}</td>
-                    <td>${user.role}</td>
-                    <td>${user.created}</td>
-                    <td>${user.idShoppinglist}</td>
+                    <td>${item.username}</td>
+                    <td>${item.password}</td>
+                    <td>${item.role}</td>
+                    <td>${item.created}</td>
+                    <td>${item.idShoppinglist}</td>
                 </tr>
             </c:forEach>
         </table>
