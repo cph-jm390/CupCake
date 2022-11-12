@@ -37,6 +37,8 @@ public class Admin extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        HttpSession session = request.getSession();
+
         response.setContentType("text/html");
         UserMapper userMapper = new UserMapper();
 
@@ -46,6 +48,7 @@ public class Admin extends HttpServlet {
             Logger.getLogger("web").log(Level.SEVERE, e.getMessage());
         }
 
+        userList = (List<User>) session.getAttribute("userList");
         System.out.println(userList);
 
         request.setAttribute("userList", userList);
