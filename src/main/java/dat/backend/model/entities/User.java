@@ -147,7 +147,7 @@ public class User {
         this.balance = balance;
     }
 
-    public void payOrder(User user, ShoppingCart cart) {
+    public void payCupcake(User user, ShoppingCart cart) {
 
     }
 }

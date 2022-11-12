@@ -102,7 +102,7 @@ public class CupcakeMapper {
     }
 
     public void insertCupcakeToDB(ShoppingCart cart, ArrayList<Integer> priceList) {
-        String sql = "INSERT INTO orderline (idTopping, idBottom, Quantity, OrderlineTotalPrice) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO Cupcake (idTopping, idBottom, Quantity, CupcakeTotalPrice) VALUES (?,?,?,?)";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -110,7 +110,7 @@ public class CupcakeMapper {
                     ps.setInt(1, cart.getCupcakeList().get(i).getIdTopping());
                     ps.setInt(2, cart.getCupcakeList().get(i).getIdBottom());
                     ps.setInt(3, cart.getCupcakeList().get(i).getQuantity());
-                    ps.setInt(4, priceList.get(i)); //OrderLineTotalPrice essentielt
+                    ps.setInt(4, priceList.get(i)); //CupcakeTotalPrice essentielt
                     ps.executeUpdate(sql);
                 }
             } catch (SQLException e) {
@@ -120,4 +120,6 @@ public class CupcakeMapper {
             throw new RuntimeException(e);
         }
     }
+
+
 }
