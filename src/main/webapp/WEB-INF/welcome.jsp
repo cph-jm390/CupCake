@@ -52,7 +52,7 @@
 
         </c:forEach>
 
-        <h2>pris: i kr ${requestScope.totalPris}</h2>
+        <h2>pris: i kr ${sessionScope.totalPris}</h2>
 
 
     </jsp:body>

@@ -15,6 +15,7 @@ import java.util.List;
 @WebServlet(name = "AddToCart", value = "/addtocart")
 public class AddToCart extends HttpServlet {
     int totalPris;
+
     ConnectionPool connectionPool = new ConnectionPool();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,14 +24,20 @@ public class AddToCart extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         HttpSession session = request.getSession();
         ShoppingCart cart= (ShoppingCart) session.getAttribute("cart");
        List<String> cupcakeNames = new ArrayList<>();
+       if (cart.getNumberOfCupcakes()==0) {
+           totalPris = 0;
+       }
     int idTopping = Integer.parseInt(request.getParameter("topping"));
     int idBottom = Integer.parseInt(request.getParameter("bottom"));
     int quantity = Integer.parseInt(request.getParameter("quantity"));
     int topPris = CupcakeFacade.getTopping(connectionPool).get(idTopping-1).getToppingPrice()*quantity;
     int botPris = CupcakeFacade.getBottom(connectionPool).get(idBottom-1).getBottomPrice()*quantity;
+
     totalPris+=topPris+botPris;
     String toppingVar=CupcakeFacade.getTopping(connectionPool).get(idTopping-1).getToppingVar();
     String bottomVar=CupcakeFacade.getBottom(connectionPool).get(idBottom-1).getBottomVar();
@@ -42,7 +49,7 @@ public class AddToCart extends HttpServlet {
     session.setAttribute("cart", cart);
         session.setAttribute("cupcakeNames", cupcakeNames);
     request.setAttribute("cartsize", cart.getNumberOfCupcakes());
-        request.setAttribute("totalPris", totalPris);
+        session.setAttribute("totalPris", totalPris);
     request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request,response)   ;
 
         request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
