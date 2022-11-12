@@ -53,6 +53,7 @@
         </c:forEach>
 
         <h2>pris: i kr ${sessionScope.totalPris}</h2>
+        <h2>testpris i kr ${sessionScope.testpris}</h2>
 
 
     </jsp:body>

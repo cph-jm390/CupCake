@@ -14,6 +14,7 @@ import java.util.List;
 
 @WebServlet(name = "AddToCart", value = "/addtocart")
 public class AddToCart extends HttpServlet {
+    List<Integer> prisholder= new ArrayList<>();
     int totalPris;
 
     ConnectionPool connectionPool = new ConnectionPool();
@@ -29,27 +30,32 @@ public class AddToCart extends HttpServlet {
         HttpSession session = request.getSession();
         ShoppingCart cart= (ShoppingCart) session.getAttribute("cart");
        List<String> cupcakeNames = new ArrayList<>();
+
        if (cart.getNumberOfCupcakes()==0) {
            totalPris = 0;
+           prisholder.clear();
        }
     int idTopping = Integer.parseInt(request.getParameter("topping"));
     int idBottom = Integer.parseInt(request.getParameter("bottom"));
     int quantity = Integer.parseInt(request.getParameter("quantity"));
     int topPris = CupcakeFacade.getTopping(connectionPool).get(idTopping-1).getToppingPrice()*quantity;
     int botPris = CupcakeFacade.getBottom(connectionPool).get(idBottom-1).getBottomPrice()*quantity;
-
+    int orderlinePris=topPris+botPris;
+    prisholder.add(orderlinePris);
     totalPris+=topPris+botPris;
     String toppingVar=CupcakeFacade.getTopping(connectionPool).get(idTopping-1).getToppingVar();
     String bottomVar=CupcakeFacade.getBottom(connectionPool).get(idBottom-1).getBottomVar();
 
+    int testpris= prisholder.get(0)+orderlinePris;
 
-
-    Cupcake cupcake = new Cupcake(idTopping,idBottom,quantity,toppingVar,bottomVar);
+    Cupcake cupcake = new Cupcake(quantity,idTopping,idBottom,toppingVar,bottomVar);
     cart.add(cupcake);
     session.setAttribute("cart", cart);
         session.setAttribute("cupcakeNames", cupcakeNames);
     request.setAttribute("cartsize", cart.getNumberOfCupcakes());
         session.setAttribute("totalPris", totalPris);
+
+        session.setAttribute("testpris", testpris);
     request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request,response)   ;
 
         request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
