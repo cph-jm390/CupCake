@@ -1,5 +1,6 @@
 package dat.backend.model.persistence;
 
+import dat.backend.control.AddToCart;
 import dat.backend.model.entities.Bottom;
 import dat.backend.model.entities.ShoppingCart;
 import dat.backend.model.entities.Topping;
@@ -101,16 +102,16 @@ public class CupcakeMapper {
         }
     }
 
-    public void insertCupcakeToDB(ShoppingCart cart, ArrayList<Integer> priceList) {
+    public void insertCupcakeToDB(ShoppingCart cart) {
         String sql = "INSERT INTO Cupcake (idTopping, idBottom, Quantity, CupcakeTotalPrice) VALUES (?,?,?,?)";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                for (int i = 0; i < priceList.size(); i++) {
+                for (int i = 0; i < AddToCart.prisholder.size(); i++) {
                     ps.setInt(1, cart.getCupcakeList().get(i).getIdTopping());
                     ps.setInt(2, cart.getCupcakeList().get(i).getIdBottom());
                     ps.setInt(3, cart.getCupcakeList().get(i).getQuantity());
-                    ps.setInt(4, priceList.get(i)); //CupcakeTotalPrice essentielt
+                    ps.setInt(4, AddToCart.prisholder.get(i)); //CupcakeTotalPrice essentielt
                     ps.executeUpdate(sql);
                 }
             } catch (SQLException e) {
