@@ -130,9 +130,12 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "brugerNavn='" + username + '\'' +
-                ", kodeord='" + password + '\'' +
-                ", rolle='" + role + '\'' +
+                "created=" + created +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", balance=" + balance +
+                ", idShoppinglist=" + idShoppinglist +
                 '}';
     }
 

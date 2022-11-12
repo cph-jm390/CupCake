@@ -10,8 +10,8 @@
 
     <jsp:body>
 
-        <h3>Your email is: ${sessionScope.user.username} </h3>
-        <p>Bottom text.</p>
+        <h2>Your Profile Page:</h2>
+        <p>Your email is: ${sessionScope.user.username} </p>
 
     </jsp:body>
 
