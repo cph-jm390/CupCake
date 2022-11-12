@@ -10,7 +10,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><jsp:invoke fragment="header"/></title>
+    <title>
+        <jsp:invoke fragment="header"/>
+    </title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,14 +32,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <c:if test="${sessionScope.user.username!=null&&!sessionScope.user.role.equalsIgnoreCase('admin')}">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/about.jsp">${sessionScope.user.username}</a>
+                        <a class="nav-item nav-link"
+                           href="${pageContext.request.contextPath}/about.jsp">${sessionScope.user.username}</a>
                     </c:if>
                     <c:if test="${sessionScope.user.role.equalsIgnoreCase('admin')}">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/admin.jsp">${sessionScope.user.username}</a>
+                        <a class="nav-item nav-link"
+                           href="${pageContext.request.contextPath}/admin.jsp">${sessionScope.user.username}</a>
                     </c:if>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/itemList">Itemlist</a>
-                    
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/WEB-INF/welcome.jsp">Home</a>
+
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/welcome.jsp">Home</a>
 
                     <c:if test="${sessionScope.user == null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>

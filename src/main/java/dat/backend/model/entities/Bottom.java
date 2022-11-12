@@ -7,7 +7,7 @@ public class Bottom {
     int bottomPrice;
 
     public Bottom(int idBottom, String bottomVar, int bottomPrice) {
-        this.idBottom=idBottom;
+        this.idBottom = idBottom;
         this.bottomVar = bottomVar;
         this.bottomPrice = bottomPrice;
     }

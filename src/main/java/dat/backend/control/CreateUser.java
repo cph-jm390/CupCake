@@ -37,14 +37,14 @@ public class CreateUser extends HttpServlet {
         String role = request.getParameter("role");
 
         try {
-            User user = UserFacade.createUser(username, password,role, connectionPool);
+            User user = UserFacade.createUser(username, password, role, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
 
             ShoppingCart cart = new ShoppingCart();
 
             session.setAttribute("cart", cart);
-            request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+            request.getRequestDispatcher("welcome.jsp").forward(request, response);
         } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);

@@ -18,6 +18,7 @@ public class AddToCart extends HttpServlet {
     int totalPris;
 
     ConnectionPool connectionPool = new ConnectionPool();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -52,13 +53,14 @@ public class AddToCart extends HttpServlet {
     cart.add(cupcake);
     session.setAttribute("cart", cart);
         session.setAttribute("cupcakeNames", cupcakeNames);
+        session.setAttribute("testpris", testpris);
+        
     request.setAttribute("cartsize", cart.getNumberOfCupcakes());
         session.setAttribute("totalPris", totalPris);
-
         session.setAttribute("testpris", testpris);
-    request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request,response)   ;
+        request.getRequestDispatcher("welcome.jsp").forward(request, response);
 
-        request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+        request.getRequestDispatcher("welcome.jsp").forward(request, response);
 
     }
 }
