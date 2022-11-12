@@ -14,7 +14,7 @@ import java.util.List;
 
 @WebServlet(name = "AddToCart", value = "/addtocart")
 public class AddToCart extends HttpServlet {
-    List<Integer> prisholder= new ArrayList<>();
+    public static List<Integer> prisholder= new ArrayList<>();
     int totalPris;
 
     ConnectionPool connectionPool = new ConnectionPool();
