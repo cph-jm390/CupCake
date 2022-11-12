@@ -105,20 +105,20 @@ public class CupcakeMapper {
         int idTopping;
         int idBottom;
         int quantity;
-        int orderlineTotalPrice;
-        String sql = "INSERT INTO orderline (idTopping, idBottom, Quantity, OrderlineTotalPrice) VALUES (?,?,?,?)";
+        int CupcakeTotalPrice;
+        String sql = "INSERT INTO orderline (idTopping, idBottom, Quantity, CupcakeTotalPrice) VALUES (?,?,?,?)";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 for (int i = 0; i < priceList.size(); i++) {
                     idTopping = cupcakeList.get(i).getIdTopping();
                     idBottom = cupcakeList.get(i).getIdBottom();
                     quantity = cupcakeList.get(i).getQuantity();
-                    orderlineTotalPrice = priceList.get(i);
+                    CupcakeTotalPrice = priceList.get(i);
 
                     ps.setInt(1, idTopping);
                     ps.setInt(2, idBottom);
                     ps.setInt(3, quantity);
-                    ps.setInt(4, orderlineTotalPrice);
+                    ps.setInt(4, CupcakeTotalPrice);
                     ps.executeUpdate(sql);
                 }
             } catch (SQLException e) {

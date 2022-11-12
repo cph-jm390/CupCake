@@ -4,14 +4,16 @@ import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-class UserMapper {
+public class UserMapper {
     static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
 
-        User user = null;
+        User user;
 
         String sql = "SELECT * FROM User WHERE username = ? AND password = ?";
 
@@ -55,12 +57,14 @@ class UserMapper {
         return user;
     }
 
-    /*
-    static List<Item> getUsers(ConnectionPool connectionPool) {
+    public static List<User> getUsers() {
 
-        List<Item> userList = new ArrayList<>();
+        ConnectionPool connectionPool = null;
 
-        String sql = "select * from ";
+        Logger.getLogger("web").log(Level.INFO, "");
+        List<User> userList = new ArrayList<>();
+
+        String sql = "select * from User";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -69,12 +73,12 @@ class UserMapper {
                 while (rs.next()) {
                     String username = rs.getString("username");
                     String password = rs.getString("password");
-
+                    String role = rs.getString("role");
                     Timestamp created = rs.getTimestamp("created");
-                    String username = rs.getString("username");
+                    int idShoppinglist = rs.getInt("idShoppinglist");
 
-                    Item newItem = new Item(id, name, done, created, username);
-                    userList.add(newItem);
+                    User newUser = new User(username, password, role, created, idShoppinglist);
+                    userList.add(newUser);
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
@@ -82,6 +86,6 @@ class UserMapper {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return itemList;
-    }*/
+        return userList;
+    }
 }

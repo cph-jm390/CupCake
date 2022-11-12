@@ -1,5 +1,6 @@
 package dat.backend.model.entities;
 
+import java.sql.Timestamp;
 import java.util.Objects;
 
 //TODO
@@ -40,18 +41,19 @@ import java.util.Objects;
      */
 //TODO
 public class User {
+    private Timestamp created;
     private String username;
     private String password;
     private String role;
     private int balance;
-    private int idOrder;
+    private int idShoppinglist;
 
     public User(String username, String password, String role, int balance) {
         this.username = username;
         this.password = password;
         this.role = role;
         this.balance = balance;
-        this.idOrder = 0;
+        this.idShoppinglist = 0;
     }
 
     public User(String username, String password, String role) {
@@ -59,7 +61,16 @@ public class User {
         this.password = password;
         this.role = role;
         this.balance = 500;
-        this.idOrder = 0;
+        this.idShoppinglist = 0;
+    }
+
+    public User(String username, String password, String role, Timestamp created, int idShoppinglist) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.created = created;
+        this.idShoppinglist = idShoppinglist;
+
     }
 
     public String getUsername() {
@@ -84,6 +95,22 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Timestamp getCreated() {
+        return created;
+    }
+
+    public void setCreated(Timestamp created) {
+        this.created = created;
+    }
+
+    public int getIdShoppinglist() {
+        return idShoppinglist;
+    }
+
+    public void setIdShoppinglist(int idShoppinglist) {
+        this.idShoppinglist = idShoppinglist;
     }
 
     @Override
