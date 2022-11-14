@@ -1,5 +1,6 @@
 package dat.backend.control;
 
+import dat.backend.model.entities.Cupcake;
 import dat.backend.model.entities.ShoppingCart;
 import dat.backend.model.persistence.CupcakeMapper;
 
@@ -24,8 +25,7 @@ public class Checkout extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
-        
-        CupcakeMapper cupcakeMapper = (CupcakeMapper) session.getAttribute("mapper");
+        CupcakeMapper cupcakeMapper = new CupcakeMapper();
         cupcakeMapper.insertCupcakeToDB(cart);
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
     }

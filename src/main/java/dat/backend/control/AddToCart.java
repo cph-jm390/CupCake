@@ -62,8 +62,5 @@ public class AddToCart extends HttpServlet {
         session.setAttribute("totalPris", totalPris);
         session.setAttribute("testpris", testpris);
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
-
-        request.getRequestDispatcher("welcome.jsp").forward(request, response);
-
     }
 }
