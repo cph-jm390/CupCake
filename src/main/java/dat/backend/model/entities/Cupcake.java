@@ -5,10 +5,9 @@ public class Cupcake {
     private int quantity;
     private int idTopping;
     private int idBottom;
-
     private String toppingVar;
-
     private String bottomVar;
+    private int totalPrice;
 
     public Cupcake(int idTopping, int idBottom, int quantity) {
         this.idTopping = idTopping;

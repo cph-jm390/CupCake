@@ -12,6 +12,7 @@
 
         <h2>Your Profile Page:</h2>
         <p>Your email is: ${sessionScope.user.username} </p>
+        <p>Your balance is: ${sessionScope.user.balance}</p>
 
     </jsp:body>
 

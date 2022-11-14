@@ -10,6 +10,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UserMapper {
+
+    public static ConnectionPool connectionPool = new ConnectionPool();
+
     static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
 
@@ -37,7 +40,7 @@ public class UserMapper {
 
     static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
-        User user;
+        User createUser;
         String sql = "insert into User (username, password, role) values (?,?,?)";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -46,7 +49,7 @@ public class UserMapper {
                 ps.setString(3, "User");
                 int rowsAffected = ps.executeUpdate();
                 if (rowsAffected == 1) {
-                    user = new User(username, password, role);
+                    createUser = new User(username, password, role);
                 } else {
                     throw new DatabaseException("The user with username = " + username + " could not be inserted into the database");
                 }
@@ -54,19 +57,17 @@ public class UserMapper {
         } catch (SQLException ex) {
             throw new DatabaseException(ex, "Could not insert username into database");
         }
-        return user;
+        return createUser;
     }
 
-    public static List<User> getUsers() {
-
-        ConnectionPool connectionPool = null;
+    public static List<User> getUsers(ConnectionPool connectionPool) {
 
         Logger.getLogger("web").log(Level.INFO, "");
         List<User> userList = new ArrayList<>();
 
         String sql = "select * from User";
 
-        try (Connection connection = connectionPool.getConnection()) {
+        try (Connection connection = UserMapper.connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
                 ResultSet rs = ps.executeQuery();
@@ -76,8 +77,9 @@ public class UserMapper {
                     String role = rs.getString("role");
                     Timestamp created = rs.getTimestamp("created");
                     int idShoppinglist = rs.getInt("idShoppinglist");
+                    int balance = rs.getInt("balance");
 
-                    User newUser = new User(username, password, role, created, idShoppinglist);
+                    User newUser = new User(username, password, role, created, idShoppinglist, balance);
                     userList.add(newUser);
                 }
             } catch (SQLException throwables) {

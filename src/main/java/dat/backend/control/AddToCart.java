@@ -2,6 +2,7 @@ package dat.backend.control;
 
 import dat.backend.model.entities.ShoppingCart;
 import dat.backend.model.entities.Cupcake;
+import dat.backend.model.entities.User;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.CupcakeFacade;
 
@@ -17,7 +18,7 @@ public class AddToCart extends HttpServlet {
     public static List<Integer> prisholder = new ArrayList<>();
     int totalPris;
 
-    ConnectionPool connectionPool = new ConnectionPool();
+    private static ConnectionPool connectionPool = new ConnectionPool();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,12 +30,15 @@ public class AddToCart extends HttpServlet {
 
         HttpSession session = request.getSession();
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+        User user = (User) session.getAttribute("user");
+
         List<String> cupcakeNames = new ArrayList<>();
 
         if (cart.getNumberOfCupcakes() == 0) {
             totalPris = 0;
             prisholder.clear();
         }
+
         int idTopping = Integer.parseInt(request.getParameter("topping"));
         int idBottom = Integer.parseInt(request.getParameter("bottom"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));

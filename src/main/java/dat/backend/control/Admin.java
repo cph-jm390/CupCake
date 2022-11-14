@@ -3,6 +3,7 @@ package dat.backend.control;
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.User;
 import dat.backend.model.persistence.ConnectionPool;
+import dat.backend.model.persistence.UserFacade;
 import dat.backend.model.persistence.UserMapper;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -18,7 +19,8 @@ public class Admin extends HttpServlet {
 
     List<User> userList = new ArrayList<>();
 
-    private ConnectionPool connectionPool;
+    private ConnectionPool connectionPool = new ConnectionPool();
+
 
     @Override
     public void init() throws ServletException {
@@ -33,21 +35,23 @@ public class Admin extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        response.setContentType("text/html");
         HttpSession session = request.getSession();
 
-        response.setContentType("text/html");
-        UserMapper userMapper = new UserMapper();
-
         try {
-            userList = userMapper.getUsers();
+            List<User> userList = UserFacade.getUsers(connectionPool);
+            session = request.getSession();
+            session.setAttribute("userList", userList);
+
+            //Admin userList = new Admin();
+
+            //userList = (List<User>) session.getAttribute("userList");
+
+            request.setAttribute("userList", userList);
+            request.getRequestDispatcher("/admin.jsp").forward(request, response);
         } catch (Exception e) {
             Logger.getLogger("web").log(Level.SEVERE, e.getMessage());
         }
 
-        userList = (List<User>) session.getAttribute("userList");
-        System.out.println(userList);
-
-        request.setAttribute("userList", userList);
-        request.getRequestDispatcher("/admin.jsp").forward(request, response);
     }
 }

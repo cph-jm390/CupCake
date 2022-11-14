@@ -1,6 +1,9 @@
 package dat.backend.model.entities;
 
+import dat.backend.control.Admin;
+
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 //TODO
@@ -64,13 +67,13 @@ public class User {
         this.idShoppinglist = 0;
     }
 
-    public User(String username, String password, String role, Timestamp created, int idShoppinglist) {
+    public User(String username, String password, String role, Timestamp created, int idShoppinglist, int balance) {
         this.username = username;
         this.password = password;
         this.role = role;
         this.created = created;
         this.idShoppinglist = idShoppinglist;
-
+        this.balance = balance;
     }
 
     public String getUsername() {

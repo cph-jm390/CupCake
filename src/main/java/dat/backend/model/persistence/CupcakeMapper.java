@@ -13,12 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CupcakeMapper {
-    ConnectionPool connectionPool = new ConnectionPool();
+    private static ConnectionPool connectionPool = new ConnectionPool();
 
     static List<Bottom> getBottom(ConnectionPool connectionPool) {
-
         List<Bottom> BottomList = new ArrayList<>();
-
         String sql = "select * from bottom";
 
         try (Connection connection = connectionPool.getConnection()) {
@@ -42,6 +40,7 @@ public class CupcakeMapper {
         return BottomList;
     }
 
+    /*
     public static void toggleBottom(int idBottom, String BottomVar, ConnectionPool connectionPool) {
 
         String sql = "UPDATE bottom SET done = (1 - done) WHERE BottomVar = ?";
@@ -58,9 +57,9 @@ public class CupcakeMapper {
             throwables.printStackTrace();
         }
     }
+     */
 
     static List<Topping> getTopping(ConnectionPool connectionPool) {
-
         List<Topping> ToppingList = new ArrayList<>();
         String sql = "select * from topping";
 
@@ -85,6 +84,7 @@ public class CupcakeMapper {
         return ToppingList;
     }
 
+    /*
     public static void toggleTopping(int idTopping, String ToppingVar, ConnectionPool connectionPool) {
 
         String sql = "UPDATE topping SET done = (1 - done) WHERE ToppingVar = ?";
@@ -102,7 +102,9 @@ public class CupcakeMapper {
         }
     }
 
-    public void insertCupcakeToDB(ShoppingCart cart) {
+     */
+
+    public static void insertCupcakeToDB(ShoppingCart cart) {
         String sql = "INSERT INTO Cupcake (idTopping, idBottom, Quantity, CupcakeTotalPrice) VALUES (?,?,?,?)";
 
         try (Connection connection = connectionPool.getConnection()) {
@@ -121,6 +123,4 @@ public class CupcakeMapper {
             throw new RuntimeException(e);
         }
     }
-
-
 }
