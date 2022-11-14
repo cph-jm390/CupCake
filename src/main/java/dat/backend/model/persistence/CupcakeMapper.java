@@ -103,7 +103,7 @@ public class CupcakeMapper {
     }
 
     public void insertCupcakeToDB(ShoppingCart cart) {
-        String sql = "INSERT INTO Cupcake (idTopping, idBottom, Quantity, CupcakeTotalPrice) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO cupcake (idTopping, idBottom, Quantity, CupcakeTotalPrice) VALUES (?,?,?,?)";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
