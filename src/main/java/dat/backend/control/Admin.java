@@ -26,25 +26,20 @@ public class Admin extends HttpServlet {
 
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-        List<User> list = (List<User>) UserFacade.getUsers(connectionPool);
+        List<User> list = UserFacade.getUsers(connectionPool);
 
         list.get(0).getRole();
         list.get(0).getBalance();
         list.get(0).getIdShoppinglist();
+
+        String username = list.get(0).getUsername();
 
 
         //Admin admin = (Admin) session.getAttribute("admin");
 
         //List<User> list = UserFacade.getUsers(connectionPool);
 
-        /*
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String role = request.getParameter("role");
-        Timestamp created = Timestamp.valueOf(request.getParameter("created"));
-        int idShoppinglist = Integer.parseInt(request.getParameter("idShoppinglist"));
-        int balance = Integer.parseInt(request.getParameter("balance"));
-         */
+        session.setAttribute("username",username);
 
         session.setAttribute("list", list);
 

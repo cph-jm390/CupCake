@@ -17,6 +17,13 @@
                 ${sessionScope.list}
         </form>
 
+        ${sessionScope.username}
+
+        <c:forEach var="item" items="${sessionScope.list}">
+            ${item.role}
+
+        </c:forEach>
+
     </jsp:body>
 
 </t:CupCakeLogo>
