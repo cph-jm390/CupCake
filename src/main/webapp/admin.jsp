@@ -13,17 +13,9 @@
 
         <h1>Welcome to the Admin Page</h1>
 
-        <table>
-            <c:forEach var="item" items="${requestScope.userList}">
-                <tr>
-                    <td>${item.username}</td>
-                    <td>${item.password}</td>
-                    <td>${item.role}</td>
-                    <td>${item.created}</td>
-                    <td>${item.idShoppinglist}</td>
-                </tr>
-            </c:forEach>
-        </table>
+        <form action="admin" method="post">
+                ${sessionScope.list}
+        </form>
 
     </jsp:body>
 
