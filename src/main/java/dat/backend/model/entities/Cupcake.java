@@ -8,6 +8,7 @@ public class Cupcake {
     private String toppingVar;
     private String bottomVar;
     private int totalPrice;
+    private int idShoppingcart;
 
 
     private int cupcakeprice;
@@ -25,6 +26,17 @@ public class Cupcake {
         this.bottomVar = bottomVar;
         this.cupcakeprice=cupcakeprice;
     }
+    public Cupcake(int quantity, int idTopping, int idBottom, int cupcakeprice, int idShoppingcart) {
+        this.quantity = quantity;
+        this.idTopping = idTopping;
+        this.idBottom = idBottom;
+        this.cupcakeprice=cupcakeprice;
+        this.idShoppingcart=idShoppingcart;
+    }
+
+    // idShoppingcart, idTopping, idBottom, Quantity, CupcakeTotalPrice
+
+
 
     public int getQuantity() {
         return quantity;
