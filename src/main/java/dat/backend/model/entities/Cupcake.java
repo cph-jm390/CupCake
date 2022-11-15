@@ -53,4 +53,7 @@ public class Cupcake {
     public void setBottomVar(String bottomVar) {
         this.bottomVar = bottomVar;
     }
+    public int getCupcakeprice() {
+        return cupcakeprice;
+    }
 }

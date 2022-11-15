@@ -113,7 +113,7 @@ public class CupcakeMapper {
                     ps.setInt(1, cart.getCupcakeList().get(i).getIdTopping());
                     ps.setInt(2, cart.getCupcakeList().get(i).getIdBottom());
                     ps.setInt(3, cart.getCupcakeList().get(i).getQuantity());
-                    ps.setInt(4, AddToCart.prisholder.get(i)); //CupcakeTotalPrice essentielt
+                    ps.setInt(4, cart.getCupcakeList().get(i).getCupcakeprice());
                     ps.executeUpdate();
                 }
             } catch (SQLException e) {
