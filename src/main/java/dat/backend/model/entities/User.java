@@ -59,24 +59,12 @@ public class User {
         this.password = password;
         this.role = role;
         this.balance = balance;
-        this.idShoppinglist = 0;
     }
 
     public User(String username, String password, String role) {
         this.username = username;
         this.password = password;
         this.role = role;
-        this.balance = 500;
-        this.idShoppinglist = 0;
-    }
-
-    public User(String username, String password, String role, Timestamp created, int idShoppinglist, int balance) {
-        this.username = username;
-        this.password = password;
-        this.role = role;
-        this.created = created;
-        this.idShoppinglist = idShoppinglist;
-        this.balance = balance;
     }
 
     public String getUsername() {
@@ -91,33 +79,15 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getRole() {
         return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public Timestamp getCreated() {
-        return created;
-    }
-
-    public void setCreated(Timestamp created) {
-        this.created = created;
     }
 
     public int getIdShoppinglist() {
         return idShoppinglist;
     }
 
-    public void setIdShoppinglist(int idShoppinglist) {
-        this.idShoppinglist = idShoppinglist;
-    }
+
 
     @Override
     public boolean equals(Object o) {
