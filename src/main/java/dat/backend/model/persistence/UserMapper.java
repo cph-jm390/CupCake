@@ -90,27 +90,26 @@ public class UserMapper {
         return userList;
     }
 
-    public static void payOrder(User user, int totalPris) {/*
+    public static void payOrder(User user, int totalPris) {
         String sql = "SELECT Balance FROM user WHERE Username = '" + user.getUsername()+"'";
+        int balance=0;
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
                 while(rs.next()) {
-                    int balance = rs.getInt(1);
-                    int balance1 = balance;
+                   balance = rs.getInt(1);
                 }
-               /* if (balance-totalPris>=0)
+
+                int remainingBalance=balance-totalPris;
+                if (remainingBalance>=0)
                 {
-                    ps.setInt(1,rs.getInt(1)-totalPris);
+                    ps.executeUpdate("UPDATE user SET balance = "+remainingBalance+" WHERE Username = '"+user.getUsername()+"'");
                 }
-
-
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        */
     }
 }
