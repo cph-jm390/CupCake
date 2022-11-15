@@ -44,6 +44,7 @@ import java.util.Objects;
      */
 //TODO
 public class User {
+    Conne
     private Timestamp created;
     private String username;
     private String password;
@@ -74,6 +75,11 @@ public class User {
         this.created = created;
         this.idShoppinglist = idShoppinglist;
         this.balance = balance;
+    }
+
+    public void pay()
+    {
+
     }
 
     public String getUsername() {
