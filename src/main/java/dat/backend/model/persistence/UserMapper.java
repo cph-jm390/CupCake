@@ -73,14 +73,14 @@ public class UserMapper {
 
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    String username = rs.getString("username");
-                    String password = rs.getString("password");
-                    String role = rs.getString("role");
-                    Timestamp created = rs.getTimestamp("created");
-                    int idShoppinglist = rs.getInt("idShoppinglist");
-                    int balance = rs.getInt("balance");
+                    String username = rs.getString("Username");
+                    String password = rs.getString("Password");
+                    String role = rs.getString("Role");
+                    //Timestamp created = rs.getTimestamp("Created");
+                    //int idShoppingcart = rs.getInt("idShoppingcart");
+                    //int balance = rs.getInt("Balance");
 
-                    User newUser = new User(username, password, role, created, idShoppinglist, balance);
+                    User newUser = new User(username, password, role);
                     userList.add(newUser);
                 }
             } catch (SQLException throwables) {

@@ -5,6 +5,7 @@ import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.UserMapper;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -153,6 +154,7 @@ public class User {
     }
 
     public void payCupcake(User user, ShoppingCart cart) {
-
     }
+
 }
+

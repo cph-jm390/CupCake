@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CupcakeMapper {
-    private static ConnectionPool connectionPool = new ConnectionPool();
+    public static ConnectionPool connectionPool = new ConnectionPool();
 
     static List<Bottom> getBottom(ConnectionPool connectionPool) {
         List<Bottom> BottomList = new ArrayList<>();
