@@ -6,6 +6,7 @@ import dat.backend.model.entities.User;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.CupcakeMapper;
 import dat.backend.model.persistence.ShoppingcartMapper;
+import dat.backend.model.persistence.UserMapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,10 +31,12 @@ public class Checkout extends HttpServlet {
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
         CupcakeMapper cupcakeMapper = new CupcakeMapper();
         ShoppingcartMapper shoppingcartMapper = new ShoppingcartMapper();
+        UserMapper userMapper = new UserMapper();
+        int totalPris = (Integer) session.getAttribute("totalPris");
         User user = (User) session.getAttribute("user");
+        userMapper.payOrder(user,totalPris);
         shoppingcartMapper.createShoppingcart(user, cart);
         cupcakeMapper.insertCupcakeToDB(cart);
-        cart.clearShoppingcart();
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
     }
 }
