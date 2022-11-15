@@ -37,7 +37,7 @@
                     </c:if>
                     <c:if test="${sessionScope.user.role.equalsIgnoreCase('admin')}">
                         <a class="nav-item nav-link"
-                           href="${pageContext.request.contextPath}/admin.jsp">${sessionScope.user.username}</a>
+                           href="${pageContext.request.contextPath}/admin">${sessionScope.user.username}</a>
                     </c:if>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/itemList">Itemlist</a>
 

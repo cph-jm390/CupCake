@@ -13,15 +13,14 @@
 
         <h1>Welcome to the Admin Page</h1>
 
-        <form action="admin" method="post">
-                ${sessionScope.list}
-        </form>
-
         ${sessionScope.username}
 
         <c:forEach var="item" items="${sessionScope.list}">
-            ${item.role}
-
+            User: ${item.username}: <br>
+            Role: ${item.role} <br>
+            Balance: ${item.balance}<br>
+            Shoppinglist ID: ${item.idShoppinglist}<br>
+            <br>
         </c:forEach>
 
     </jsp:body>
