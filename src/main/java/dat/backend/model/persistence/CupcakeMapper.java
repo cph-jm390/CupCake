@@ -2,6 +2,7 @@ package dat.backend.model.persistence;
 
 import dat.backend.control.AddToCart;
 import dat.backend.model.entities.Bottom;
+import dat.backend.model.entities.Cupcake;
 import dat.backend.model.entities.ShoppingCart;
 import dat.backend.model.entities.Topping;
 
@@ -124,4 +125,13 @@ public class CupcakeMapper {
             throw new RuntimeException(e);
         }
     }
+    public static int cupcakeCalc(ShoppingCart cart){
+        int totalorderPrice=0;
+        for(Cupcake cupcake: cart.getCupcakeList()){
+            totalorderPrice+=cupcake.getCupcakeprice();
+        }
+    return totalorderPrice;
+
+    }
+
 }
