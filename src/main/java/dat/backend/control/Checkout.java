@@ -2,7 +2,10 @@ package dat.backend.control;
 
 import dat.backend.model.entities.Cupcake;
 import dat.backend.model.entities.ShoppingCart;
+import dat.backend.model.entities.User;
+import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.CupcakeMapper;
+import dat.backend.model.persistence.ShoppingcartMapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +29,9 @@ public class Checkout extends HttpServlet {
         HttpSession session = request.getSession();
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
         CupcakeMapper cupcakeMapper = new CupcakeMapper();
+        ShoppingcartMapper shoppingcartMapper = new ShoppingcartMapper();
+        User user = (User) session.getAttribute("user");
+        shoppingcartMapper.createShoppingcart(user, cart);
         cupcakeMapper.insertCupcakeToDB(cart);
         cart.clearShoppingcart();
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
