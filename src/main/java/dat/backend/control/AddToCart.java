@@ -15,7 +15,7 @@ import java.util.List;
 
 @WebServlet(name = "AddToCart", value = "/addtocart")
 public class AddToCart extends HttpServlet {
-    public static List<Integer> prisholder = new ArrayList<>();
+    public static List<Integer> prisholder = new ArrayList<>(); //kan fjernes
     int totalPris;
 
     private static ConnectionPool connectionPool = new ConnectionPool();
@@ -44,15 +44,15 @@ public class AddToCart extends HttpServlet {
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         int topPris = CupcakeFacade.getTopping(connectionPool).get(idTopping - 1).getToppingPrice() * quantity;
         int botPris = CupcakeFacade.getBottom(connectionPool).get(idBottom - 1).getBottomPrice() * quantity;
-        int CupcakePris = topPris + botPris;
-        prisholder.add(CupcakePris);
+        int cupcakePris = topPris + botPris;
+        prisholder.add(cupcakePris);
         totalPris += topPris + botPris;
         String toppingVar = CupcakeFacade.getTopping(connectionPool).get(idTopping - 1).getToppingVar();
         String bottomVar = CupcakeFacade.getBottom(connectionPool).get(idBottom - 1).getBottomVar();
 
-        int testpris = prisholder.get(0) + CupcakePris;
+        int testpris = prisholder.get(0) + cupcakePris;
 
-        Cupcake cupcake = new Cupcake(quantity, idTopping, idBottom, toppingVar, bottomVar);
+        Cupcake cupcake = new Cupcake(quantity, idTopping, idBottom, toppingVar, bottomVar, cupcakePris);
         cart.add(cupcake);
         session.setAttribute("cart", cart);
         session.setAttribute("cupcakeNames", cupcakeNames);

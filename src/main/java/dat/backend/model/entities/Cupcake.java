@@ -9,18 +9,21 @@ public class Cupcake {
     private String bottomVar;
     private int totalPrice;
 
+
+    private int cupcakeprice;
     public Cupcake(int idTopping, int idBottom, int quantity) {
         this.idTopping = idTopping;
         this.idBottom = idBottom;
         this.quantity = quantity;
     }
 
-    public Cupcake(int quantity, int idTopping, int idBottom, String toppingVar, String bottomVar) {
+    public Cupcake(int quantity, int idTopping, int idBottom, String toppingVar, String bottomVar, int cupcakeprice) {
         this.quantity = quantity;
         this.idTopping = idTopping;
         this.idBottom = idBottom;
         this.toppingVar = toppingVar;
         this.bottomVar = bottomVar;
+        this.cupcakeprice=cupcakeprice;
     }
 
     public int getQuantity() {
