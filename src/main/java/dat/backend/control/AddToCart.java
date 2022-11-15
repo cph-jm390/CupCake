@@ -45,14 +45,8 @@ public class AddToCart extends HttpServlet {
         HttpSession session = request.getSession();
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
         User user = (User) session.getAttribute("user");
-
         List<String> cupcakeNames = new ArrayList<>();
-        /*
-        if (cart.getNumberOfCupcakes() == 0) {
-            totalPris = 0;
-            prisholder.clear();
-        }
-         */
+
         //Evt smid ind i cupcakeMapper
         int idTopping = Integer.parseInt(request.getParameter("topping"));
         int idBottom = Integer.parseInt(request.getParameter("bottom"));
@@ -60,22 +54,18 @@ public class AddToCart extends HttpServlet {
         int topPris = CupcakeFacade.getTopping(connectionPool).get(idTopping - 1).getToppingPrice() * quantity;
         int botPris = CupcakeFacade.getBottom(connectionPool).get(idBottom - 1).getBottomPrice() * quantity;
         int cupcakePris = topPris + botPris;
-        // prisholder.add(cupcakePris);
         totalPris += topPris + botPris;
         String toppingVar = CupcakeFacade.getTopping(connectionPool).get(idTopping - 1).getToppingVar();
         String bottomVar = CupcakeFacade.getBottom(connectionPool).get(idBottom - 1).getBottomVar();
 
-        //int testpris = prisholder.get(0) + cupcakePris;
 
         Cupcake cupcake = new Cupcake(quantity, idTopping, idBottom, toppingVar, bottomVar, cupcakePris);
         cart.add(cupcake);
         session.setAttribute("cart", cart);
         session.setAttribute("cupcakeNames", cupcakeNames);
-        //session.setAttribute("testpris", testpris);
 
         request.setAttribute("cartsize", cart.getNumberOfCupcakes());
         session.setAttribute("totalPris", totalPris);
-        //session.setAttribute("testpris", testpris);
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
     }
 }
