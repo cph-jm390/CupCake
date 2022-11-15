@@ -1,6 +1,8 @@
 package dat.backend.model.entities;
 
 import dat.backend.control.Admin;
+import dat.backend.model.persistence.ConnectionPool;
+import dat.backend.model.persistence.UserMapper;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -44,7 +46,6 @@ import java.util.Objects;
      */
 //TODO
 public class User {
-    Conne
     private Timestamp created;
     private String username;
     private String password;
@@ -75,11 +76,6 @@ public class User {
         this.created = created;
         this.idShoppinglist = idShoppinglist;
         this.balance = balance;
-    }
-
-    public void pay()
-    {
-
     }
 
     public String getUsername() {
