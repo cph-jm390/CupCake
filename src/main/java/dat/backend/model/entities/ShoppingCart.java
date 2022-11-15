@@ -10,6 +10,13 @@ public class ShoppingCart {
     public ShoppingCart() {
     }
 
+    public void clearShoppingcart()
+    {
+        for (int i=0; i<cupcakeList.size(); i++)
+        {
+            cupcakeList.remove(i);
+        }
+    }
     public void add(Cupcake cupcake) {
         cupcakeList.add(cupcake);
     }
