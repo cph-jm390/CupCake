@@ -90,4 +90,8 @@ public class UserMapper {
         }
         return userList;
     }
+    public static void createShoppingcart()
+    {
+
+    }
 }
