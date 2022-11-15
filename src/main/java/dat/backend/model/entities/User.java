@@ -59,6 +59,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.balance = getBalance();
     }
 
     public String getUsername() {

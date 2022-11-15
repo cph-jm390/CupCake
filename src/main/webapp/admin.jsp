@@ -13,15 +13,17 @@
 
         <h1>Welcome to the Admin Page</h1>
 
-        ${sessionScope.username}
-
-        <c:forEach var="item" items="${sessionScope.list}">
-            User: ${item.username}: <br>
-            Role: ${item.role} <br>
-            Balance: ${item.balance}<br>
-            Shoppinglist ID: ${item.idShoppinglist}<br>
+        <form action="admin" method="get">
+            <button name="showAllUsers">Show all Users</button>
             <br>
-        </c:forEach>
+            <c:forEach var="item" items="${sessionScope.list}">
+                User: ${item.username}: <br>
+                Role: ${item.role} <br>
+                Balance: ${item.balance}<br>
+                Shoppinglist ID: ${item.idShoppinglist}<br>
+                <br>
+            </c:forEach>
+        </form>
 
     </jsp:body>
 
