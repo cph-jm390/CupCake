@@ -123,5 +123,6 @@ public class CupcakeMapper {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        cart.getCupcakeList().clear();
     }
 }
