@@ -109,7 +109,7 @@ public class CupcakeMapper {
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                for (int i = 0; i < AddToCart.prisholder.size(); i++) {
+                for (int i = 0; i < cart.getCupcakeList().size(); i++) {
                     ps.setInt(1, cart.getCupcakeList().get(i).getIdTopping());
                     ps.setInt(2, cart.getCupcakeList().get(i).getIdBottom());
                     ps.setInt(3, cart.getCupcakeList().get(i).getQuantity());
