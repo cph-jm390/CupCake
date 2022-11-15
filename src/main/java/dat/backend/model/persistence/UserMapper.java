@@ -41,12 +41,13 @@ public class UserMapper {
     static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
         User createUser;
-        String sql = "insert into User (username, password, role) values (?,?,?)";
+        String sql = "insert into User (username, password, role, balance) values (?,?,?,?)";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setString(1, username);
                 ps.setString(2, password);
                 ps.setString(3, "User");
+                ps.setInt(4,0);
                 int rowsAffected = ps.executeUpdate();
                 if (rowsAffected == 1) {
                     createUser = new User(username, password, role);
@@ -77,9 +78,9 @@ public class UserMapper {
                     String role = rs.getString("Role");
                     //Timestamp created = rs.getTimestamp("Created");
                     //int idShoppingcart = rs.getInt("idShoppingcart");
-                    //int balance = rs.getInt("Balance");
+                    int balance = rs.getInt("Balance");
 
-                    User newUser = new User(username, password, role);
+                    User newUser = new User(username, password, role, balance);
                     userList.add(newUser);
                 }
             } catch (SQLException throwables) {

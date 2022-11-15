@@ -1,7 +1,9 @@
 package dat.backend.control;
 
+import dat.backend.model.entities.ShoppingCart;
 import dat.backend.model.entities.User;
 import dat.backend.model.persistence.ConnectionPool;
+import dat.backend.model.persistence.CupcakeFacade;
 import dat.backend.model.persistence.UserFacade;
 
 import javax.servlet.*;

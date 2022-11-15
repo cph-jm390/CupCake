@@ -1,12 +1,6 @@
 package dat.backend.model.entities;
 
-import dat.backend.control.Admin;
-import dat.backend.model.persistence.ConnectionPool;
-import dat.backend.model.persistence.UserMapper;
-
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 //TODO
@@ -65,6 +59,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.balance = getBalance();
     }
 
     public String getUsername() {
