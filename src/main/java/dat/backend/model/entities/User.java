@@ -41,6 +41,7 @@ import java.util.Objects;
      */
 //TODO
 public class User {
+    Conne
     private Timestamp created;
     private String username;
     private String password;
@@ -70,6 +71,11 @@ public class User {
         this.role = role;
         this.created = created;
         this.idShoppinglist = idShoppinglist;
+
+    }
+
+    public void pay()
+    {
 
     }
 
