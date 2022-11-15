@@ -43,13 +43,6 @@ public class ShoppingCart {
         this.status = status;
     }
 
-    public void clearShoppingcart()
-    {
-        for (int i=0; i<cupcakeList.size(); i++)
-        {
-            cupcakeList.remove(i);
-        }
-    }
     public void add(Cupcake cupcake) {
         cupcakeList.add(cupcake);
     }

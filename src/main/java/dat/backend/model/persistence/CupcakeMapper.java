@@ -124,6 +124,7 @@ public class CupcakeMapper {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        cart.getCupcakeList().clear();
     }
     public static int cupcakeCalc(ShoppingCart cart){
         int totalorderPrice=0;

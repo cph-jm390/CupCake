@@ -1,6 +1,5 @@
 package dat.backend.model.persistence;
 
-import dat.backend.control.AddToCart;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 
@@ -93,14 +92,20 @@ public class UserMapper {
         return userList;
     }
 
-    public static void payOrder(User user, int totalPris) {
-        int nySaldo = 0;
-        String sql = "SELECT balance FROM user WHERE username = '" + user.getUsername() + "'";
+    public static void payOrder(User user, int totalPris) {/*
+        String sql = "SELECT Balance FROM user WHERE Username = '" + user.getUsername()+"'";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
-                int balance = rs.getInt("balance");
-                nySaldo= balance-totalPris;
+                while(rs.next()) {
+                    int balance = rs.getInt(1);
+                    int balance1 = balance;
+                }
+               /* if (balance-totalPris>=0)
+                {
+                    ps.setInt(1,rs.getInt(1)-totalPris);
+                }
+
 
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -108,21 +113,6 @@ public class UserMapper {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-         sql = "INSERT INTO user (balance) VALUES (?) WHERE username = '" + user.getUsername() + "'";
-
-        try (Connection connection = connectionPool.getConnection()) {
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-
-                    ps.setInt(1, nySaldo);
-
-                    ps.executeUpdate();
-
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        */
     }
-    }
-
+}
