@@ -134,4 +134,34 @@ public class CupcakeMapper {
 
     }
 
+    static List<Cupcake> getCupcakes(ConnectionPool connectionPool) {
+        List<Cupcake> dbCupcakeList = new ArrayList<>();
+        String sql = "select * from Cupcake";
+
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                // idShoppingcart, idTopping, idBottom, Quantity, CupcakeTotalPrice
+                
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int idShoppingcard = rs.getInt("idShoppingcard");
+                    int idTopping = rs.getInt("idTopping");
+                    int idBottom = rs.getInt("idBottom");
+                    int quantity = rs.getInt("Quantity");
+                    int cupcakeTotalPrice = rs.getInt("CupcakeTotalPrice");
+
+
+                    Cupcake newCupcake = new Cupcake(quantity,idTopping,idBottom,cupcakeTotalPrice,idShoppingcard);
+                    dbCupcakeList.add(newCupcake);
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return dbCupcakeList;
+    }
+
 }
