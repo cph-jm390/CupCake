@@ -76,8 +76,6 @@ public class UserMapper {
                     String username = rs.getString("Username");
                     String password = rs.getString("Password");
                     String role = rs.getString("Role");
-                    //Timestamp created = rs.getTimestamp("Created");
-                    //int idShoppingcart = rs.getInt("idShoppingcart");
                     int balance = rs.getInt("Balance");
 
                     User newUser = new User(username, password, role, balance);

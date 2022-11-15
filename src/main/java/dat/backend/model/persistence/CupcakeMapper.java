@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CupcakeMapper {
     public static ConnectionPool connectionPool = new ConnectionPool();
@@ -135,26 +137,26 @@ public class CupcakeMapper {
 
     }
 
-    static List<Cupcake> getCupcakes(ConnectionPool connectionPool) {
-        List<Cupcake> dbCupcakeList = new ArrayList<>();
+    public static List<Cupcake> getCupcakes(ConnectionPool connectionPool) {
+
+        Logger.getLogger("web").log(Level.INFO, "");
+        List<Cupcake> cupcakeList = new ArrayList<>();
+
         String sql = "select * from Cupcake";
 
-        try (Connection connection = connectionPool.getConnection()) {
+        try (Connection connection = CupcakeMapper.connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
-                // idShoppingcart, idTopping, idBottom, Quantity, CupcakeTotalPrice
-                
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    int idShoppingcard = rs.getInt("idShoppingcard");
+                    int idShoppingcart = rs.getInt("idShoppingcart");
                     int idTopping = rs.getInt("idTopping");
                     int idBottom = rs.getInt("idBottom");
                     int quantity = rs.getInt("Quantity");
                     int cupcakeTotalPrice = rs.getInt("CupcakeTotalPrice");
 
-
-                    Cupcake newCupcake = new Cupcake(quantity,idTopping,idBottom,cupcakeTotalPrice,idShoppingcard);
-                    dbCupcakeList.add(newCupcake);
+                    Cupcake newCupcake = new Cupcake(quantity,idTopping,idBottom,cupcakeTotalPrice,idShoppingcart);
+                    cupcakeList.add(newCupcake);
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
@@ -162,7 +164,7 @@ public class CupcakeMapper {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return dbCupcakeList;
+        return cupcakeList;
     }
 
 }

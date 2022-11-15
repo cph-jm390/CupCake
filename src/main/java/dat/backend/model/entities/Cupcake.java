@@ -10,7 +10,6 @@ public class Cupcake {
     private int totalPrice;
     private int idShoppingcart;
 
-
     private int cupcakeprice;
     public Cupcake(int idTopping, int idBottom, int quantity) {
         this.idTopping = idTopping;
@@ -67,5 +66,13 @@ public class Cupcake {
     }
     public int getCupcakeprice() {
         return cupcakeprice;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public int getIdShoppingcart() {
+        return idShoppingcart;
     }
 }

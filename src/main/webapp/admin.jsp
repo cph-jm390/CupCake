@@ -20,7 +20,19 @@
                 User: ${item.username}: <br>
                 Role: ${item.role} <br>
                 Balance: ${item.balance}<br>
-                Shoppinglist ID: ${item.idShoppinglist}<br>
+                <br>
+            </c:forEach>
+        </form>
+
+        <form action="addtocart" method="get">
+            <button onclick ="getAllOrders">Show all orders</button>
+            <br>
+            <c:forEach var="item" items="${sessionScope.cupcakeList}">
+                Shoppingcart ID: ${item.idShoppingcart}: <br>
+                Topping ID: ${item.idTopping}
+                Bottom ID: ${item.idBottom}
+                Quantity: ${item.quantity}
+                Total Price: ${item.cupcakeprice}<br>
                 <br>
             </c:forEach>
         </form>

@@ -15,14 +15,28 @@ import java.util.List;
 
 @WebServlet(name = "AddToCart", value = "/addtocart")
 public class AddToCart extends HttpServlet {
-    // public static List<Integer> prisholder = new ArrayList<>(); //kan fjernes
     int totalPris;
 
     private static ConnectionPool connectionPool = new ConnectionPool();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+        response.setContentType("text/html");
+        HttpSession session = request.getSession();
+
+        List<Cupcake> cupcakeList = CupcakeFacade.getCupcakes(connectionPool);
+/*
+        cupcakeList.get(1).getIdShoppingcart();
+        cupcakeList.get(1).getIdTopping();
+        cupcakeList.get(1).getIdBottom();
+        cupcakeList.get(1).getQuantity();
+        cupcakeList.get(1).getTotalPrice();
+
+ */
+
+        session.setAttribute("cupcakeList", cupcakeList);
+
+        request.getRequestDispatcher("admin.jsp").forward(request, response);
     }
 
     @Override
