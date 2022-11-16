@@ -33,7 +33,8 @@ public class Checkout extends HttpServlet {
         userMapper.payOrder(user,totalPris);
         shoppingcartMapper.createShoppingcart(user, cart);
         cupcakeMapper.insertCupcakeToDB(cart);
-        session.setAttribute("totalPris",0);
+        totalPris=0;
+        session.setAttribute("totalPris",totalPris);
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
     }
 }

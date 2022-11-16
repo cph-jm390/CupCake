@@ -37,7 +37,10 @@ public class AddToCart extends HttpServlet {
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
         User user = (User) session.getAttribute("user");
         List<String> cupcakeNames = new ArrayList<>();
-
+        if(cart.getCupcakeList().size()==0)
+        {
+            totalPris=0;
+        }
         int idTopping = Integer.parseInt(request.getParameter("topping"));
         int idBottom = Integer.parseInt(request.getParameter("bottom"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));

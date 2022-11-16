@@ -31,13 +31,13 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <c:if test="${sessionScope.user.username!=null&&!sessionScope.user.role.equalsIgnoreCase('admin')}">
-                        <a class="nav-item nav-link"
-                           href="${pageContext.request.contextPath}/about.jsp">${sessionScope.user.username}</a>
-                    </c:if>
-                    <c:if test="${sessionScope.user.role.equalsIgnoreCase('admin')}">
+                    <c:if test="${sessionScope.user.username.equalsIgnoreCase('admin')}">
                         <a class="nav-item nav-link"
                            href="${pageContext.request.contextPath}/admin.jsp">${sessionScope.user.username}</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user.username!=null&&!sessionScope.user.username.equalsIgnoreCase('admin')}">
+                        <a class="nav-item nav-link"
+                           href="${pageContext.request.contextPath}/about.jsp">${sessionScope.user.username}</a>
                     </c:if>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/itemList">Itemlist</a>
 
