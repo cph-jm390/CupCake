@@ -54,11 +54,5 @@ public class ShoppingCart {
     public List<Cupcake> getCupcakeList() {
         return cupcakeList;
     }
-    /*
-    public void setCupcakeList(List<Cupcake> cupcakeList) {
-        this.cupcakeList = cupcakeList;
-    }
-
-     */
 
 }

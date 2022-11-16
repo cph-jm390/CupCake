@@ -1,9 +1,7 @@
 package dat.backend.control;
 
-import dat.backend.model.entities.Cupcake;
 import dat.backend.model.entities.User;
 import dat.backend.model.persistence.ConnectionPool;
-import dat.backend.model.persistence.CupcakeFacade;
 import dat.backend.model.persistence.UserFacade;
 
 import javax.servlet.*;
@@ -23,16 +21,8 @@ public class Admin extends HttpServlet {
         HttpSession session = request.getSession();
 
         List<User> list = UserFacade.getUsers(connectionPool);
-/*
-        list.get(0).getUsername();
-        list.get(0).getRole();
-        list.get(0).getBalance();
-        list.get(0).getIdShoppinglist();
- */
         session.setAttribute("list", list);
-
         request.getRequestDispatcher("admin.jsp").forward(request, response);
-
     }
 
     @Override

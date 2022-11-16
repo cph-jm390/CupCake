@@ -1,6 +1,5 @@
 package dat.backend.model.persistence;
 
-import dat.backend.control.AddToCart;
 import dat.backend.model.entities.Bottom;
 import dat.backend.model.entities.Cupcake;
 import dat.backend.model.entities.ShoppingCart;
@@ -43,25 +42,6 @@ public class CupcakeMapper {
         return BottomList;
     }
 
-    /*
-    public static void toggleBottom(int idBottom, String BottomVar, ConnectionPool connectionPool) {
-
-        String sql = "UPDATE bottom SET done = (1 - done) WHERE BottomVar = ?";
-        try (Connection connection = connectionPool.getConnection()) {
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1, idBottom);
-                ps.setString(2, BottomVar);
-                ps.executeUpdate();
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
-     */
-
     static List<Topping> getTopping(ConnectionPool connectionPool) {
         List<Topping> ToppingList = new ArrayList<>();
         String sql = "select * from topping";
@@ -86,26 +66,6 @@ public class CupcakeMapper {
         }
         return ToppingList;
     }
-
-    /*
-    public static void toggleTopping(int idTopping, String ToppingVar, ConnectionPool connectionPool) {
-
-        String sql = "UPDATE topping SET done = (1 - done) WHERE ToppingVar = ?";
-        try (Connection connection = connectionPool.getConnection()) {
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1, idTopping);
-                ps.setString(2, ToppingVar);
-                ps.executeUpdate();
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
-
-     */
 
     public static void insertCupcakeToDB(ShoppingCart cart) {
         String sql = "INSERT INTO Cupcake (idTopping, idBottom, Quantity, CupcakeTotalPrice, idShoppingcart) VALUES (?,?,?,?,?)";

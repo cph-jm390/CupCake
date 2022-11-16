@@ -3,43 +3,6 @@ package dat.backend.model.entities;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-//TODO
-/*
-    load user funktion, tilføj loop for at printe alle users
-    public Laaner hentLaanerUdFraId(int laanerId) throws DatabaseException
-    {
-        Logger.getLogger("web").log(Level.INFO, "laanerId=" + laanerId);
-        Laaner laaner = null;
-        String sql = "select * from Laaner inner join postnummer using(postnr) " +
-                "where laaner_id = ?";
-        try (Connection connection = connectionPool.getConnection())
-        {
-            try (PreparedStatement ps = connection.prepareStatement(sql))
-            {
-                ps.setInt(1, laanerId);
-                ResultSet rs = ps.executeQuery();
-                if (rs.next())
-                {
-                    laanerId = rs.getInt("laaner_id");
-                    String navn = rs.getString("navn");
-                    String adresse = rs.getString("adresse");
-                    int postnummer = rs.getInt("postnr");
-                    String by = rs.getString("by");
-                    laaner = new Laaner(laanerId, navn, adresse, postnummer, by);
-                } else
-                {
-                    throw new DatabaseException("Låner med laaner_id = " + laanerId + " findes ikke");
-                }
-            }
-        } catch (SQLException ex)
-        {
-            throw new DatabaseException(ex, "Fejl i databaseforespørgsel for laaner_id = " + laanerId);
-        }
-        return laaner;
-    }
-
-     */
-//TODO
 public class User {
     private Timestamp created;
     private String username;

@@ -25,15 +25,6 @@ public class AddToCart extends HttpServlet {
         HttpSession session = request.getSession();
 
         List<Cupcake> cupcakeList = CupcakeFacade.getCupcakes(connectionPool);
-/*
-        cupcakeList.get(1).getIdShoppingcart();
-        cupcakeList.get(1).getIdTopping();
-        cupcakeList.get(1).getIdBottom();
-        cupcakeList.get(1).getQuantity();
-        cupcakeList.get(1).getTotalPrice();
-
- */
-
         session.setAttribute("cupcakeList", cupcakeList);
 
         request.getRequestDispatcher("admin.jsp").forward(request, response);
@@ -47,7 +38,6 @@ public class AddToCart extends HttpServlet {
         User user = (User) session.getAttribute("user");
         List<String> cupcakeNames = new ArrayList<>();
 
-        //Evt smid ind i cupcakeMapper
         int idTopping = Integer.parseInt(request.getParameter("topping"));
         int idBottom = Integer.parseInt(request.getParameter("bottom"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));

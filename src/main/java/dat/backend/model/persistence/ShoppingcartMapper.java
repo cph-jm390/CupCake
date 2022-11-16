@@ -1,14 +1,9 @@
 package dat.backend.model.persistence;
 
 import dat.backend.model.entities.ShoppingCart;
-import dat.backend.model.entities.Topping;
 import dat.backend.model.entities.User;
-import dat.backend.model.exceptions.DatabaseException;
 
-import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

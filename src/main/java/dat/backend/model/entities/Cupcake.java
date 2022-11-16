@@ -33,10 +33,6 @@ public class Cupcake {
         this.idShoppingcart=idShoppingcart;
     }
 
-    // idShoppingcart, idTopping, idBottom, Quantity, CupcakeTotalPrice
-
-
-
     public int getQuantity() {
         return quantity;
     }
